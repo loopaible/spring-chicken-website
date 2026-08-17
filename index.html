@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Chicken — Always in Season</title>
+<meta name="description" content="A fresh, modern take on fast-casual dining from the team behind 50 Eggs' globally celebrated brands. Hand-brined, never frozen chicken — sandwiches, wraps, and salads made to order.">
+<link rel="stylesheet" href="css/base.css?v=90">
+<link rel="stylesheet" href="css/home.css?v=90">
+<link rel="preload" as="image" href="assets/images/hero-spread.jpg" fetchpriority="high">
+</head>
+<body>
+
+<!-- ==========================================================================
+     PROTOTYPE NOTES (remove before final handoff)
+     - Red dashed circles are sticker placeholders: swap for the client-supplied
+       badge SVGs at the same position (see .sticker-slot in css/base.css).
+     - Burbank venue name is unconfirmed (comp reads "Internal Review") —
+       swap the "Venue TBD" tag once that's finalized.
+     - Nav + CTA links point to page filenames that don't exist yet
+       (our-story.html, menus.html, locations.html, franchise.html) —
+       placeholders for the pages we build next.
+     ========================================================================== -->
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <div class="nav-item nav-item--mega">
+        <a href="our-story.html">About <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="our-story.html" class="mega-menu__link">Our Story</a>
+            <a href="contact.html" class="mega-menu__link">Contact</a>
+            <a href="locations.html" class="mega-menu__link">Locations</a>
+            <a href="careers.html" class="mega-menu__link">Careers</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item nav-item--mega">
+        <a href="menus.html">View Menu <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__cards">
+              <a href="menus.html" class="mega-card mega-card--cta">
+                <span class="mega-card__label headline-outline">View Full Menu</span>
+              </a>
+              <a href="menus.html#cat-signatures" class="mega-card">
+                <img src="assets/images/hero-spread.jpg" alt="Signatures" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Signatures</span>
+              </a>
+              <a href="menus.html#cat-sandwiches" class="mega-card">
+                <img src="assets/images/tile-sandwiches.jpg" alt="Sandwiches" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sandwiches</span>
+              </a>
+              <a href="menus.html#cat-wraps" class="mega-card">
+                <img src="assets/images/tile-wraps.jpg" alt="Wraps" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Wraps</span>
+              </a>
+              <a href="menus.html#cat-salads" class="mega-card">
+                <img src="assets/images/tile-salads.jpg" alt="Salads" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Salads</span>
+              </a>
+              <a href="menus.html#cat-tenders" class="mega-card">
+                <img src="assets/images/menu-tenders.jpg" alt="Tenders &amp; Combos" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Tenders &amp; Combos</span>
+              </a>
+              <a href="menus.html#cat-sides" class="mega-card">
+                <img src="assets/images/made-to-order.jpg" alt="Sides" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sides</span>
+              </a>
+              <a href="menus.html#cat-breakfast" class="mega-card">
+                <img src="assets/images/menu-breakfast.jpg" alt="Breakfast" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Breakfast</span>
+              </a>
+              <a href="menus.html#cat-toasts" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Toasts</span>
+              </a>
+              <a href="menus.html#cat-coffee" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Coffee &amp; Drinks</span>
+              </a>
+              <a href="menus.html#cat-juices" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Juices &amp; Smoothies</span>
+              </a>
+              <a href="menus.html#cat-grabgo" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Grab &amp; Go</span>
+              </a>
+              <a href="menus.html#cat-sweets" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Sweets</span>
+              </a>
+              <a href="menus.html#cat-sauces" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">House Sauces</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="blog.html">Journal</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo-teal.png" alt="Spring Chicken">
+    </a>
+
+    <div class="site-header__actions">
+      <div class="nav-item nav-item--mega">
+        <a href="franchise.html">Investors <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="franchise.html" class="mega-menu__link">Franchise Opportunity</a>
+            <a href="media-kit.html" class="mega-menu__link">Media Kit</a>
+            <a href="investor-relations.html" class="mega-menu__link">Investor Relations</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn btn--teal btn--sm">Order Now</a>
+      <button class="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+<img id="traveling-sticker" class="sticker traveling-sticker" src="assets/images/stickers/sticker-what-cookin.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__frame">
+      <img src="assets/images/hero-spread.jpg" alt="Spring Chicken hand-breaded sandwich, tenders, and seasoned wedges spread across branded packaging" loading="eager" fetchpriority="high">
+      <div class="hero__content">
+        <h1 class="headline-outline">Always in season</h1>
+        <p class="tile-eyebrow tile-eyebrow--lg">An unapologetic homage to the traditional flavors of Modern American cuisine</p>
+        <a href="#" class="btn btn--white">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNATURE TILES -->
+  <section class="signature-tiles">
+    <div class="signature-tile">
+      <img src="assets/images/tile-sandwiches.jpg" alt="Spring Chicken hand-breaded chicken sandwich" loading="lazy" decoding="async">
+      <div class="signature-tile__label">
+        <span class="tile-eyebrow">Our Signature</span>
+        <h3 class="headline-outline">Sandwiches</h3>
+        <a href="menus.html#cat-sandwiches" class="btn btn--white btn--sm">View All Sandwiches</a>
+      </div>
+    </div>
+    <div class="signature-tile">
+      <img src="assets/images/tile-wraps.jpg" alt="Spring Chicken grain bowl with grilled chicken, corn, and blue cheese" loading="lazy" decoding="async">
+      <div class="signature-tile__label">
+        <span class="tile-eyebrow">Handcrafted</span>
+        <h3 class="headline-outline">Wraps</h3>
+        <a href="menus.html#cat-wraps" class="btn btn--white btn--sm">View All Wraps</a>
+      </div>
+    </div>
+    <div class="signature-tile">
+      <img src="assets/images/tile-salads.jpg" alt="Spring Chicken salad bowl with grilled chicken, tomato, and greens" loading="lazy" decoding="async">
+      <div class="signature-tile__label">
+        <span class="tile-eyebrow">Made-to-Order</span>
+        <h3 class="headline-outline">Salads</h3>
+        <a href="menus.html#cat-salads" class="btn btn--white btn--sm">View All Salads</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS STRIP -->
+  <section class="press-strip">
+    <div class="press-strip__row">
+      <p class="press-strip__label">Featured In</p>
+      <div class="press-ticker">
+        <div class="press-ticker__track">
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/bon-appetit.png'); mask-image:url('assets/images/press/bon-appetit.png'); aspect-ratio:1075/240;" role="img" aria-label="Bon Appétit"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/forbes.png'); mask-image:url('assets/images/press/forbes.png'); aspect-ratio:895/240;" role="img" aria-label="Forbes"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/food-wine.png'); mask-image:url('assets/images/press/food-wine.png'); aspect-ratio:1650/240;" role="img" aria-label="Food &amp; Wine"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/town-country.png'); mask-image:url('assets/images/press/town-country.png'); aspect-ratio:1784/240;" role="img" aria-label="Town &amp; Country"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/zagat.png'); mask-image:url('assets/images/press/zagat.png'); aspect-ratio:1010/240;" role="img" aria-label="Zagat"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/usa-today.png'); mask-image:url('assets/images/press/usa-today.png'); aspect-ratio:643/240;" role="img" aria-label="USA Today"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/haute-living.png'); mask-image:url('assets/images/press/haute-living.png'); aspect-ratio:2124/240;" role="img" aria-label="Haute Living"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/nations-restaurant-news.png'); mask-image:url('assets/images/press/nations-restaurant-news.png'); aspect-ratio:927/240;" role="img" aria-label="Nation's Restaurant News"></span>
+          <!-- duplicated for seamless loop -->
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/bon-appetit.png'); mask-image:url('assets/images/press/bon-appetit.png'); aspect-ratio:1075/240;" aria-hidden="true"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/forbes.png'); mask-image:url('assets/images/press/forbes.png'); aspect-ratio:895/240;" aria-hidden="true"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/food-wine.png'); mask-image:url('assets/images/press/food-wine.png'); aspect-ratio:1650/240;" aria-hidden="true"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/town-country.png'); mask-image:url('assets/images/press/town-country.png'); aspect-ratio:1784/240;" aria-hidden="true"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/zagat.png'); mask-image:url('assets/images/press/zagat.png'); aspect-ratio:1010/240;" aria-hidden="true"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/usa-today.png'); mask-image:url('assets/images/press/usa-today.png'); aspect-ratio:643/240;" aria-hidden="true"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/haute-living.png'); mask-image:url('assets/images/press/haute-living.png'); aspect-ratio:2124/240;" aria-hidden="true"></span>
+          <span class="press-logo-mask" style="-webkit-mask-image:url('assets/images/press/nations-restaurant-news.png'); mask-image:url('assets/images/press/nations-restaurant-news.png'); aspect-ratio:927/240;" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY / FARM-FRESH / BRING-THE-COOP -->
+  <div class="story-rows">
+    <section class="split split--media-right">
+      <div class="split__media">
+        <div class="split__media__frame">
+          <img src="assets/images/founder-john-kunkel.jpg" alt="John Kunkel, Founder &amp; CEO of Spring Chicken" loading="lazy" decoding="async">
+          <span id="sticker-spot-1" class="sticker-spot" data-src="assets/images/stickers/sticker-what-cookin.png" style="width:110px; height:110px; top:-22px; left:-22px;" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="split__text split__text--center">
+        <span class="script-accent">Inspired by a Legacy of Quality,<br>Bold Flavor, and Genuine Hospitality</span>
+        <h2>A fresh, modern take on fast-casual dining from the team behind 50 Eggs' globally celebrated brand</h2>
+        <a href="our-story.html" class="btn btn--teal btn--sm">Our Story</a>
+      </div>
+    </section>
+
+    <section class="split">
+      <div class="split__media">
+        <div class="split__media__frame">
+          <img src="assets/images/farm-fresh.jpg" alt="Spring Chicken bowl with grilled chicken, corn, avocado, and pickled onion" loading="lazy" decoding="async">
+          <span id="sticker-spot-2" class="sticker-spot" data-src="assets/images/stickers/sticker-in-your-city.png" style="width:110px; height:110px; top:-22px; left:-22px;" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="split__text split__text--center">
+        <span class="script-accent">Farm-Fresh Ingredients</span>
+        <h2>Made to order, never frozen, and always focused on quality ingredients sourced locally as often as possible</h2>
+      </div>
+    </section>
+
+    <section class="split split--media-right">
+      <div class="split__media">
+        <div class="split__media__frame">
+          <img src="assets/images/partner-hand.jpg" alt="Hand reaching into a box of Spring Chicken tenders" loading="lazy" decoding="async">
+          <span id="sticker-spot-3" class="sticker-spot" data-src="assets/images/stickers/sticker-join-coop.png" style="width:110px; height:110px; top:-22px; left:-22px;" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="split__text split__text--center">
+        <span class="script-accent">Built for People Who Move</span>
+        <h2>If you operate a high-traffic venue and are looking for a concept that performs, we want to hear from you</h2>
+        <a href="franchise.html" class="btn btn--teal btn--sm">Franchise Opportunity</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="watermark-band">
+    <p class="watermark">The Bird is the Word</p>
+  </div>
+
+  <!-- ICONIC LOCATIONS -->
+  <section class="locations">
+    <div class="container" style="position:relative;">
+      <div class="section-heading section-heading--locations">
+        <h2>Iconic Locations</h2>
+      </div>
+      <div class="location-grid">
+        <div class="location-card">
+          <div class="location-card__frame">
+            <img src="assets/images/location-miami.jpg" alt="Miami, FL skyline and marina" loading="lazy" decoding="async">
+          </div>
+          <div class="location-card__label">
+            <span class="venue">Miami Int'l Airport</span>
+          </div>
+        </div>
+        <div class="location-card">
+          <div class="location-card__frame">
+            <img src="assets/images/location-burbank.jpg" alt="Burbank, CA at sunset" loading="lazy" decoding="async">
+          </div>
+          <div class="location-card__label">
+            <span class="venue">Allegiant Stadium</span>
+          </div>
+        </div>
+        <div class="location-card">
+          <div class="location-card__frame">
+            <img src="assets/images/location-lasvegas.jpg" alt="Las Vegas, NV" loading="lazy" decoding="async">
+          </div>
+          <div class="location-card__label">
+            <span class="venue">American Airlines Center</span>
+          </div>
+        </div>
+      </div>
+      <a href="locations.html" class="btn btn--teal btn--sm">View Locations</a>
+    </div>
+  </section>
+
+  <!-- DIGITAL / ORDERING TILES ("blog" tiles) — same two-part structure as
+       the About page's "Team Behind It" section: a title + supporting
+       copy header (reusing .story-scroll__heading), then a borderless
+       image/title/body/button grid underneath. Replaces the old
+       .section-heading--farm title that sat outside the section with its
+       own red rule line. -->
+  <section class="digital-tiles story-scroll">
+    <div class="story-scroll__heading">
+      <h2>Fresh Off<br>The Farm</h2>
+      <div class="story-scroll__heading-copy">
+        <p>Cracking into the digital age — a peek at the ordering app, the drops, and everything else keeping Spring Chicken fresh.</p>
+        <a href="blog.html" class="btn btn--outline-teal btn--sm">Fresh Off The Farm</a>
+      </div>
+    </div>
+    <div class="story-scroll__row">
+      <div class="mega-menu__cards story-scroll__track">
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/digital-1-stack.jpg" alt="Stacked Spring Chicken sandwiches" loading="lazy" decoding="async">
+          </div>
+          <h3><a href="#">Skip the line, every time <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+          <p>Order ahead with our app and walk right past the queue to a bag that's already waiting.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/digital-2-drizzle.jpg" alt="Sauce being drizzled over a Spring Chicken sandwich" loading="lazy" decoding="async">
+          </div>
+          <h3><a href="#">Nothing sits, nothing waits <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+          <p>Every order is made fresh, packed, and ready the moment you arrive — never frozen, never rushed.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <span class="placeholder-note">Needs Licensed / Client Photo</span>
+            <img src="assets/images/digital-3-kid-PLACEHOLDER.jpg" alt="Placeholder lifestyle image — needs a properly licensed replacement" loading="lazy" decoding="async">
+          </div>
+          <h3><a href="#">Menu drops before anyone else <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+          <p>Sign up and be first to know about new items, limited-time offers, and everything Spring Chicken.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/location-dallas.jpg" alt="Dallas skyline near the American Airlines Center" loading="lazy" decoding="async">
+          </div>
+          <h3><a href="#">Spring Chicken lands in Dallas <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h3>
+          <p>Our newest location is up and running at American Airlines Center — here's what's on the menu.</p>
+        </div>
+        <a href="blog.html" class="story-scroll__item story-scroll__item--end">
+          <span>Check Out More Stories</span>
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <button type="button" class="scroll-next" aria-label="Scroll to next">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="container">
+      <div class="site-footer__cta">
+        <h2>Join the coop</h2>
+        <p>Sign up for menu drops, new locations, and offers — your next stop before the coop.</p>
+        <form class="site-footer__form" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn--outline-light btn--sm">Sign Up</button>
+        </form>
+      </div>
+      <div class="site-footer__social">
+        <p class="site-footer__social-label">Join the flock:<br>@springchicken</p>
+        <div class="site-footer__social-icons">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 8.5h2V5.5h-2c-2.2 0-3.5 1.4-3.5 3.5v2H9.5v3H11.5V19h3v-6h2.1l.4-3H14.5V9c0-.4.2-.5.5-.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16.3" cy="7.7" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4.5v10.8a2.7 2.7 0 1 1-2.2-2.66" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 7.2c1 1.6 2.5 2.6 4.3 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <a href="#" class="btn btn--outline-light btn--sm">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <p class="footer-col-title">Our Menu</p>
+        <ul>
+          <li><a href="menus.html#cat-signatures">Signatures</a></li>
+          <li><a href="menus.html#cat-sandwiches">Sandwiches</a></li>
+          <li><a href="menus.html#cat-wraps">Wraps</a></li>
+          <li><a href="menus.html#cat-salads">Salads</a></li>
+          <li><a href="menus.html#cat-tenders">Tenders &amp; Combos</a></li>
+          <li><a href="menus.html#cat-sides">Sides</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Learn</p>
+        <ul>
+          <li><a href="our-story.html">Our Story</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="franchise.html">Franchise</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Support</p>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="media-kit.html">Media Kit</a></li>
+          <li><a href="investor-relations.html">Investor Relations</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>A 50 Eggs Hospitality Group concept.</span>
+      <span>&copy; Spring Chicken 2026 &mdash; Site by <a href="https://loopaible.com" target="_blank" rel="noopener">Loopaible</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
+<script src="js/main.js?v=90"></script>
+</body>
+</html>

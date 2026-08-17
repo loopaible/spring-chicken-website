@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Chicken — Menu</title>
+<meta name="description" content="The full Spring Chicken menu — signature sandwiches, wraps, salads, tenders, breakfast, drinks, and more.">
+<link rel="stylesheet" href="css/base.css?v=90">
+<link rel="stylesheet" href="css/home.css?v=90">
+<link rel="stylesheet" href="css/menu.css?v=90">
+</head>
+<body>
+
+<!-- ==========================================================================
+     PROTOTYPE NOTES (remove before final handoff)
+     - Content pulled from the client's existing menu page; no prices were
+       listed there, so none appear here either — add pricing when available.
+     - Each category is a two-column layout (image pinned while its item
+       list scrolls past), alternating sides category to category, per the
+       client's direction — one image per category (not per item, unlike
+       the sweetgreen reference) since that's the photography available.
+     - Six categories (Toasts, Coffee & Specialty Drinks, Juices/Smoothies,
+       Grab & Go, Grab & Go Sweets, House Sauces) have no matching product
+       photography in the shoot — those panels are placeholders, flagged
+       inline, awaiting real photos.
+     ========================================================================== -->
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <div class="nav-item nav-item--mega">
+        <a href="our-story.html">About <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="our-story.html" class="mega-menu__link">Our Story</a>
+            <a href="contact.html" class="mega-menu__link">Contact</a>
+            <a href="locations.html" class="mega-menu__link">Locations</a>
+            <a href="careers.html" class="mega-menu__link">Careers</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item nav-item--mega">
+        <a href="menus.html">View Menu <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__cards">
+              <a href="menus.html" class="mega-card mega-card--cta">
+                <span class="mega-card__label headline-outline">View Full Menu</span>
+              </a>
+              <a href="#cat-signatures" class="mega-card">
+                <img src="assets/images/hero-spread.jpg" alt="Signatures" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Signatures</span>
+              </a>
+              <a href="#cat-sandwiches" class="mega-card">
+                <img src="assets/images/tile-sandwiches.jpg" alt="Sandwiches" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sandwiches</span>
+              </a>
+              <a href="#cat-wraps" class="mega-card">
+                <img src="assets/images/tile-wraps.jpg" alt="Wraps" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Wraps</span>
+              </a>
+              <a href="#cat-salads" class="mega-card">
+                <img src="assets/images/tile-salads.jpg" alt="Salads" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Salads</span>
+              </a>
+              <a href="#cat-tenders" class="mega-card">
+                <img src="assets/images/menu-tenders.jpg" alt="Tenders &amp; Combos" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Tenders &amp; Combos</span>
+              </a>
+              <a href="#cat-sides" class="mega-card">
+                <img src="assets/images/made-to-order.jpg" alt="Sides" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sides</span>
+              </a>
+              <a href="#cat-breakfast" class="mega-card">
+                <img src="assets/images/menu-breakfast.jpg" alt="Breakfast" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Breakfast</span>
+              </a>
+              <a href="#cat-toasts" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Toasts</span>
+              </a>
+              <a href="#cat-coffee" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Coffee &amp; Drinks</span>
+              </a>
+              <a href="#cat-juices" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Juices &amp; Smoothies</span>
+              </a>
+              <a href="#cat-grabgo" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Grab &amp; Go</span>
+              </a>
+              <a href="#cat-sweets" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Sweets</span>
+              </a>
+              <a href="#cat-sauces" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">House Sauces</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="blog.html">Journal</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo-teal.png" alt="Spring Chicken">
+    </a>
+
+    <div class="site-header__actions">
+      <div class="nav-item nav-item--mega">
+        <a href="franchise.html">Investors <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="franchise.html" class="mega-menu__link">Franchise Opportunity</a>
+            <a href="media-kit.html" class="mega-menu__link">Media Kit</a>
+            <a href="investor-relations.html" class="mega-menu__link">Investor Relations</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn btn--teal btn--sm">Order Now</a>
+      <button class="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+<main>
+
+  <!-- MENU HERO — same markup/classes as the homepage hero (css/home.css
+       is shared across both pages), with a different photo than the
+       homepage hero so the two pages read as distinct, and no CTA button
+       since this hero's whole job is just to introduce the menu below. -->
+  <section class="hero">
+    <div class="hero__frame">
+      <img src="assets/images/farm-banner.jpg" alt="Spring Chicken tenders and seasoned wedges spread across branded packaging" loading="lazy" decoding="async">
+      <div class="hero__content">
+        <h1 class="headline-outline">Our Menu</h1>
+        <p class="tile-eyebrow tile-eyebrow--lg">Hand-brined, never frozen — sandwiches, wraps, salads, and more, made to order</p>
+      </div>
+    </div>
+  </section>
+
+  <nav class="menu-subnav" aria-label="Menu categories">
+    <span class="menu-subnav__eyebrow">Quick Options</span>
+    <div class="menu-subnav__track">
+      <a href="#cat-signatures" class="is-active">Signatures</a>
+      <a href="#cat-sandwiches">Sandwiches</a>
+      <a href="#cat-wraps">Wraps</a>
+      <a href="#cat-salads">Salads</a>
+      <a href="#cat-tenders">Tenders &amp; combos</a>
+      <a href="#cat-sides">Sides</a>
+      <a href="#cat-breakfast">Breakfast</a>
+      <a href="#cat-toasts">Toasts</a>
+      <a href="#cat-coffee">Coffee &amp; drinks</a>
+      <a href="#cat-juices">Juices &amp; smoothies</a>
+      <a href="#cat-grabgo">Grab &amp; go</a>
+      <a href="#cat-sweets">Sweets</a>
+      <a href="#cat-sauces">House sauces</a>
+    </div>
+  </nav>
+
+  <!-- MENU PANELS — only the active category is shown; switching is
+       handled by initMenuPanels() in js/main.js -->
+  <div class="menu-panels">
+
+  <section class="menu-category" id="cat-signatures">
+    <h2 class="menu-category__title">Signatures</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Hot Honey Chicken Sandwich</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crispy chicken, hot honey glaze, house slaw, pickles, spicy aioli, brioche</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Crispy Chicken Wasabi Caesar Wrap</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Shredded romaine, aged parmesan, wasabi Caesar dressing</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Spring Chicken Chop</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Grilled chicken, chopped greens, crispy turkey bacon, aged cheddar, avocado, tomato, pickled red onion, herb vinaigrette</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature" style="background-image:url('assets/images/hero-spread.jpg')" aria-hidden="true"></div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Jumbo Tenders Box</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crispy tenders, fries, choice of two house sauces</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat</span>
+              
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-sandwiches">
+    <h2 class="menu-category__title">Sandwiches</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Classic Crispy Chicken Sandwich</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crispy chicken, pickles, shredded lettuce, house aioli, toasted brioche, lemon</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Hot Honey Chicken Sandwich</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crispy chicken, hot honey glaze, house slaw, pickles, spicy aioli, brioche</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Grilled Chicken Club</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Grilled chicken, crispy bacon, lettuce, tomato, avocado, herb aioli, toasted brioche</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature" style="background-image:url('assets/images/tile-sandwiches.jpg')" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-wraps">
+    <h2 class="menu-category__title">Wraps</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Crispy Chicken Wasabi Caesar Wrap</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Shredded romaine, aged parmesan, wasabi Caesar</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Buffalo Chicken Wrap</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crispy chicken, shredded greens, buffalo sauce, celery, light ranch</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Chicken Club Wrap</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Grilled chicken, crispy bacon, avocado, tomato, cheddar, shredded lettuce, herb aioli, lemon</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature" style="background-image:url('assets/images/tile-wraps.jpg')" aria-hidden="true"></div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Veggie Protein Wrap</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Hummus, roasted vegetables, quinoa, fresh greens, tomato, pickled onion</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Sesame</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-salads">
+    <h2 class="menu-category__title">Salads</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Spring Chicken Chop</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Chopped greens, crispy turkey bacon, aged cheddar, avocado, tomato, pickled red onion, herb vinaigrette</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Wasabi Caesar Salad</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crisp romaine, aged parmesan, wasabi Caesar, furikake, parmesan crisp, garlic sourdough breadcrumbs</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Southwest Chicken Salad</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Chopped greens, corn, black beans, tomato, pickled red onion, cucumber, avocado, tortilla crisps, chipotle ranch</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy</span>
+              
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature" style="background-image:url('assets/images/tile-salads.jpg')" aria-hidden="true"></div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Protein Power Chop Bowl</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Arugula, quinoa, chickpeas, avocado, tomato, roasted corn, pickled onion, herbs, crispy chickpeas, lemon vinaigrette</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-tenders">
+    <h2 class="menu-category__title">Tenders &amp; Combos</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Classic Fried Chicken Tenders</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Served with your choice of house sauces</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Sandwich or Wrap Combo</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Choice of sandwich or wrap, fries, drink</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Tenders Combo</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Tenders box, side, drink</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat</span>
+              
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature" style="background-image:url('assets/images/menu-tenders.jpg')" aria-hidden="true"></div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Breakfast Combo</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Breakfast item plus coffee</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-sides">
+    <h2 class="menu-category__title">Sides</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Hand-Cut Fries, Sea Salt</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Classic and craveable</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Truffle Parmesan Fries</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Truffle oil, shaved parmesan, fresh herbs</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">House Slaw</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crunchy, tangy, just-right</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Egg</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature" style="background-image:url('assets/images/made-to-order.jpg')" aria-hidden="true"></div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Side Salad</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Mixed greens, vinaigrette</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Fresh Fruit</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Seasonal, sliced to order</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-breakfast">
+    <h2 class="menu-category__title">Breakfast</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Egg Sandwich</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Soft-scrambled eggs, aged cheddar, toasted brioche</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Breakfast Chicken Sandwich</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crispy chicken, egg, spicy aioli, brioche</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Breakfast Tacos</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Eggs, chicken sausage, salsa, warm flour tortillas</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature" style="background-image:url('assets/images/menu-breakfast.jpg')" aria-hidden="true"></div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Breakfast Burrito</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Eggs, chicken, potatoes, cheese, crispy turkey bacon, salsa</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Protein Waffle</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Fresh berries, organic maple syrup</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Greek Yogurt Parfait</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Granola, seasonal berries, wildflower honey</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy</span>
+              
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-toasts">
+    <h2 class="menu-category__title">Toasts</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Avocado Toast</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Sourdough, smashed avocado, olive oil, sea salt — add eggs any style or smoked salmon</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature menu-grid__feature--placeholder" aria-hidden="true">
+          <span class="menu-category__placeholder-note">Needs product photography</span>
+        </div>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-coffee">
+    <h2 class="menu-category__title">Coffee &amp; Specialty Drinks</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Espresso</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Rich, bold single shot</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Cappuccino</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Velvety milk foam, balanced espresso</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Latte</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Smooth espresso, steamed milk</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature menu-grid__feature--placeholder" aria-hidden="true">
+          <span class="menu-category__placeholder-note">Needs product photography</span>
+        </div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Iced Coffee</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Cold brewed, clean and refreshing</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Cali Drip</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">California roast, horchata cream, cinnamon dust</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Ca Phe Cali</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Vietnamese-style iced coffee, condensed milk, bold and sweet</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Santa Cruz Swirl</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Cold brew, strawberry, vanilla cream</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Matcha Breeze</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Ceremonial matcha, almond milk, lightly sweet</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Tree Nut (Almond)</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-juices">
+    <h2 class="menu-category__title">Juices, Wellness &amp; Smoothies</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Green Fuel</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Kale, spinach, apple, lemon</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Golden Glow</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Orange, turmeric, ginger</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Beet Charge</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Beet, carrot, apple</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature menu-grid__feature--placeholder" aria-hidden="true">
+          <span class="menu-category__placeholder-note">Needs product photography</span>
+        </div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Wellness Shots</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Ginger, turmeric, or immunity boost</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Protein Power</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Banana, almond milk, grass-fed whey protein, cinnamon, vanilla</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Tree Nut (Almond), Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Tropical Recovery</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Mango, pineapple, coconut water, fresh lime</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Berry Blend</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Mixed berries, yogurt, honey, chia seeds</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-grabgo">
+    <h2 class="menu-category__title">Grab &amp; Go</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Protein Box</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Chicken, eggs, fruit, nuts</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Egg, Tree Nut</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Pre-Made Wraps</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Rotating selection</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Yogurt Parfait</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Greek yogurt, house granola, seasonal fruit</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy, Wheat</span>
+              
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature menu-grid__feature--placeholder" aria-hidden="true">
+          <span class="menu-category__placeholder-note">Needs product photography</span>
+        </div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Hard Boiled Eggs</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Simple, clean protein</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Egg</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Hummus and Fresh Vegetables</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Crisp crudités, house hummus</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Sesame</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="menu-card__diet-icon" title="Vegan"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-4.5-1-8-4.5-9-10 5.5 1 9 4.5 10 9m-1-9c1-5.5 4.5-9 10-10-1 5.5-4.5 9-10 10Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-sweets">
+    <h2 class="menu-category__title">Grab &amp; Go Sweets</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Protein Brownie</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Chocolate, clean ingredients, low sugar</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Chocolate Chip Cookie</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Warm, soft center, sea salt</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Rice Crispy Treat</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">House-made, marshmallow</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature menu-grid__feature--placeholder" aria-hidden="true">
+          <span class="menu-category__placeholder-note">Needs product photography</span>
+        </div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Banana Bread</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Moist, lightly sweet</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Blueberry Muffin</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Bakery-style, crumble top</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Wheat, Dairy, Egg</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Energy Bites</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Oats, peanut butter, chocolate, honey</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Peanut, Wheat</span>
+              
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  <section class="menu-category" id="cat-sauces">
+    <h2 class="menu-category__title">House Sauces</h2>
+    <div class="menu-grid">
+        <article class="menu-card">
+          <h3 class="menu-card__title">Signature Sauce</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Tangy, slightly smoky, our everyday workhorse</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Spicy Aioli</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Creamy with a kick</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Egg</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">House Ranch</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Cultured buttermilk, fresh herbs, cracked pepper</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens">Contains: Dairy</span>
+              <span class="menu-card__diet"><span class="menu-card__diet-icon" title="Gluten-Free"><svg class="diet-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21V3M9 6l3-3 3 3M9 10l3-3 3 3M9 14l3-3 3 3M9 18l3-3 3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span></span>
+            </div>
+          </div>
+        </article>
+        <div class="menu-grid__feature menu-grid__feature--placeholder" aria-hidden="true">
+          <span class="menu-category__placeholder-note">Needs product photography</span>
+        </div>
+        <article class="menu-card">
+          <h3 class="menu-card__title">BBQ</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Sweet, smoky, classic</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              
+            </div>
+          </div>
+        </article>
+        <article class="menu-card">
+          <h3 class="menu-card__title">Honey Hot Sauce</h3>
+          <div class="menu-card__body">
+            <p class="menu-card__desc">Sweet up front, slow burn at the finish</p>
+            <hr class="menu-card__rule">
+            <div class="menu-card__meta">
+              <span class="menu-card__allergens menu-card__allergens--tbd">No allergen info yet</span>
+              
+            </div>
+          </div>
+        </article>
+    </div>
+  </section>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="container">
+      <div class="site-footer__cta">
+        <h2>Join the coop</h2>
+        <p>Sign up for menu drops, new locations, and offers — your next stop before the coop.</p>
+        <form class="site-footer__form" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn--outline-light btn--sm">Sign Up</button>
+        </form>
+      </div>
+      <div class="site-footer__social">
+        <p class="site-footer__social-label">Join the flock:<br>@springchicken</p>
+        <div class="site-footer__social-icons">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 8.5h2V5.5h-2c-2.2 0-3.5 1.4-3.5 3.5v2H9.5v3H11.5V19h3v-6h2.1l.4-3H14.5V9c0-.4.2-.5.5-.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16.3" cy="7.7" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4.5v10.8a2.7 2.7 0 1 1-2.2-2.66" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 7.2c1 1.6 2.5 2.6 4.3 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <a href="#" class="btn btn--outline-light btn--sm">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <p class="footer-col-title">Our Menu</p>
+        <ul>
+          <li><a href="#cat-signatures">Signatures</a></li>
+          <li><a href="#cat-sandwiches">Sandwiches</a></li>
+          <li><a href="#cat-wraps">Wraps</a></li>
+          <li><a href="#cat-salads">Salads</a></li>
+          <li><a href="#cat-tenders">Tenders &amp; combos</a></li>
+          <li><a href="#cat-sides">Sides</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Learn</p>
+        <ul>
+          <li><a href="our-story.html">Our Story</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="franchise.html">Franchise</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Support</p>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="media-kit.html">Media Kit</a></li>
+          <li><a href="investor-relations.html">Investor Relations</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>A 50 Eggs Hospitality Group concept.</span>
+      <span>&copy; Spring Chicken 2026 &mdash; Site by <a href="https://loopaible.com" target="_blank" rel="noopener">Loopaible</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="js/main.js?v=90"></script>
+</body>
+</html>

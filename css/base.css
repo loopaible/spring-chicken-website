@@ -1,0 +1,445 @@
+/* ==========================================================================
+   Spring Chicken — Design tokens, fonts, base elements
+   ========================================================================== */
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/Avenir-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/Avenir-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/Avenir-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/Avenir-Heavy.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/Avenir-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lobster";
+  src: url("../assets/fonts/Lobster-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand colors — from Spring Chicken band assets guide */
+  --sc-teal: #09606d;
+  --sc-red: #ed2231;
+  --sc-brown: #4f2d08;
+  --sc-cream: #f4f2ed;
+  --sc-white: #ffffff;
+  --sc-ink: #221a12; /* near-black for body copy, softer than pure black */
+
+  /* Fonts */
+  --font-display: "Avenir", "Helvetica Neue", Arial, sans-serif;
+  --font-script: "Lobster", cursive;
+
+  /* Spacing / layout */
+  --container: 1240px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --radius: 8px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-card: 0 12px 30px rgba(34, 26, 18, 0.12);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--sc-ink);
+  background: var(--sc-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GSAP ScrollSmoother structure — header sits outside the smooth-scrolled
+   content (see js/main.js) since position:sticky breaks under
+   ScrollSmoother's transform-based scrolling. #smooth-content gets its
+   top padding set from JS to match the fixed header's real height. */
+#smooth-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+#smooth-content {
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.05;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Subheader text gets a slight self-color stroke to reinforce weight —
+   currentColor so it always matches whatever color the heading already is. */
+h2, h3 {
+  -webkit-text-stroke: 0.4px currentColor;
+  text-stroke: 0.4px currentColor;
+}
+
+/* Accent line — the small teal bold line used above bold statements in the
+   split sections ("Inspired by a legacy...", "Farm-Fresh Ingredients",
+   "Built for People Who Move"). Avenir bold, sentence case — not italic,
+   not Lobster. */
+.script-accent {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  color: var(--sc-teal);
+  font-size: clamp(0.6875rem, 0.8vw, 0.8125rem);
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+  -webkit-text-stroke: 0.4px currentColor;
+  text-stroke: 0.4px currentColor;
+}
+.script-accent--red {
+  color: var(--sc-red);
+}
+
+/* Tile eyebrow — small subheader label used on the signature-tile photos,
+   and on the hero as its supporting line. Plain Avenir, not italic;
+   distinct color from .script-accent used in split sections, but same
+   self-color stroke treatment as every other subheader on the page. */
+.tile-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: normal;
+  text-transform: none;
+  color: var(--sc-white);
+  font-size: clamp(0.875rem, 1.3vw, 1.125rem);
+  letter-spacing: 0.01em;
+  margin-bottom: 2px;
+  -webkit-text-stroke: 0.4px currentColor;
+  text-stroke: 0.4px currentColor;
+}
+
+/* Larger subheader variant — used for the hero + farm-banner supporting
+   line, which needs more presence than the compact tile eyebrows. */
+.tile-eyebrow--lg {
+  font-size: clamp(1.0625rem, 1.8vw, 1.375rem);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+/* Outlined display headline — the "ALWAYS IN SEASON." treatment: white
+   fill with a thin dark stroke, used only on the two hero-style banners. */
+.headline-outline {
+  color: var(--sc-white);
+  -webkit-text-stroke: 1.25px var(--sc-teal);
+  text-stroke: 1.25px var(--sc-teal);
+  text-shadow:
+    0 0 1px var(--sc-teal),
+    0 1px 1px rgba(9, 96, 109, 0.35);
+}
+
+/* Full-bleed decorative script watermark — "the Bird is the Word" */
+.watermark {
+  font-family: var(--font-script);
+  text-transform: none;
+  font-weight: 400;
+  color: var(--sc-teal);
+  opacity: 0.03;
+  /* Sized so the full phrase fits within (or just barely bleeds past) the
+     viewport width, rather than the previous size which was nearly 2x
+     the available width and got clipped mid-phrase by the band's
+     overflow:hidden. */
+  font-size: clamp(3rem, 13.5vw, 12rem);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1;
+  padding-block: 0.35em;
+  user-select: none;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* Buttons — pill shape, brand teal fill is the primary CTA style used
+   throughout the approved comp; outline variant for use on photos/dark. */
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.9em 3em;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Simple fill hover — plain background-color swap to the hover color, no
+   sliding panel/direction tracking. Each variant just sets
+   --btn-hover-fill and its own :hover text/border. */
+.btn:hover {
+  background: var(--btn-hover-fill, transparent);
+}
+
+.btn--teal {
+  background: var(--sc-teal);
+  color: var(--sc-white);
+  border-color: var(--sc-teal);
+  --btn-hover-fill: var(--sc-cream);
+}
+.btn--teal:hover {
+  color: var(--sc-teal);
+  border-color: var(--sc-teal);
+}
+
+.btn--red {
+  background: var(--sc-red);
+  color: var(--sc-white);
+}
+.btn--red:hover {
+  background: #d41927;
+}
+
+.btn--outline-light {
+  background: transparent;
+  color: var(--sc-white);
+  border-color: var(--sc-white);
+  --btn-hover-fill: var(--sc-white);
+}
+.btn--outline-light:hover {
+  color: var(--sc-ink);
+  border-color: var(--sc-white);
+}
+
+.btn--outline-teal {
+  background: var(--sc-cream);
+  color: var(--sc-teal);
+  border-color: var(--sc-teal);
+  --btn-hover-fill: var(--sc-teal);
+}
+.btn--outline-teal:hover {
+  color: var(--sc-cream);
+  border-color: var(--sc-teal);
+}
+
+.btn--sm {
+  padding: 0.7em 2.25em;
+  font-size: 0.625rem;
+}
+
+/* White fill, thin teal outline, teal text — used on the hero-style photo
+   banners (hero + farm banner) where a solid white outline read too heavy. */
+.btn--white {
+  background: var(--sc-white);
+  color: var(--sc-teal);
+  border: 1px solid var(--sc-teal);
+  --btn-hover-fill: var(--sc-teal);
+}
+.btn--white:hover {
+  color: var(--sc-white);
+  border-color: var(--sc-teal);
+}
+
+/* Corner ribbon — small diagonal flag badge, e.g. the first signature tile */
+.corner-ribbon {
+  position: absolute;
+  top: 18px;
+  right: -34px;
+  z-index: 5;
+  background: var(--sc-red);
+  color: var(--sc-white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Section heading with red rule, used for "ICONIC LOCATIONS" / "FRESH OFF THE FARM" */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.section-heading h2 {
+  color: var(--sc-teal);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  white-space: nowrap;
+}
+.section-heading .rule {
+  height: 4px;
+  background: var(--sc-red);
+  flex: 1 1 auto;
+  max-width: 240px;
+}
+/* Centered title with a single red rule bleeding off one edge of the
+   viewport. The rule is a pseudo-element anchored to the h2 itself (not a
+   flex sibling) so the title stays truly centered regardless of its own
+   text length — a flex-grow rule sibling would eat the centering slack. */
+.section-heading--locations h2,
+.section-heading--farm h2 {
+  position: relative;
+  display: inline-block;
+}
+.section-heading--locations h2::after,
+.section-heading--farm h2::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 100vw;
+  height: 4px;
+  background: var(--sc-red);
+  transform: translateY(-50%);
+}
+.section-heading--locations h2::after {
+  left: 100%;
+  margin-left: 24px;
+}
+.section-heading--farm h2::before {
+  right: 100%;
+  margin-right: 24px;
+}
+
+/* Sticker placeholder — swap-in slot for the client-supplied red badge SVGs.
+   Visible only as a dashed marker in this prototype build. */
+.sticker-slot {
+  position: absolute;
+  width: var(--sticker-size, 96px);
+  height: var(--sticker-size, 96px);
+  border-radius: 50%;
+  border: 2px dashed var(--sc-red);
+  background: rgba(237, 34, 49, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sc-red);
+  line-height: 1.2;
+  padding: 8px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Brand stickers — real badge artwork. No hover animation: this element's
+   transform is continuously driven by GSAP during the scroll-scrubbed
+   travel animation, and a CSS hover animation fighting over the same
+   `transform` property caused a bad flicker/glitch if the pointer landed
+   on the sticker mid-transit. */
+.sticker {
+  position: absolute;
+  max-width: none;
+  width: var(--sticker-size, 96px);
+  height: var(--sticker-size, 96px);
+  z-index: 5;
+  transform-origin: 50% 50%;
+}
+
+/* Invisible position markers — the traveling sticker's waypoints are
+   measured from these at runtime (see initStickerTravel in js/main.js), so
+   the resting spots stay exactly where they were laid out originally. */
+.sticker-spot {
+  position: absolute;
+  z-index: 5;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.traveling-sticker {
+  --sticker-size: 110px;
+  z-index: 6;
+  visibility: hidden;
+}
+.traveling-sticker.is-ready {
+  visibility: visible;
+}
+@media (min-width: 1024px) {
+  .traveling-sticker {
+    --sticker-size: 140px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

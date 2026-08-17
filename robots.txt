@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: once this site has a real production domain, uncomment and update:
+# Sitemap: https://www.springchicken.com/sitemap.xml

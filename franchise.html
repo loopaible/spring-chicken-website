@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Chicken — Franchise Opportunity</title>
+<meta name="description" content="Franchise opportunity for Spring Chicken, a 50 Eggs Hospitality Group concept.">
+<link rel="stylesheet" href="css/base.css?v=90">
+<link rel="stylesheet" href="css/home.css?v=90">
+</head>
+<body>
+
+<!-- ==========================================================================
+     PROTOTYPE NOTES (remove before final handoff)
+     - Just getting this page started: hero + one placeholder intro section.
+       No real franchise content exists yet (financials, unit economics,
+       application process, etc.) — everything below is a stand-in for what
+       the client provides.
+     ========================================================================== -->
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <div class="nav-item nav-item--mega">
+        <a href="our-story.html">About <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="our-story.html" class="mega-menu__link">Our Story</a>
+            <a href="contact.html" class="mega-menu__link">Contact</a>
+            <a href="locations.html" class="mega-menu__link">Locations</a>
+            <a href="careers.html" class="mega-menu__link">Careers</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item nav-item--mega">
+        <a href="menus.html">View Menu <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__cards">
+              <a href="menus.html" class="mega-card mega-card--cta">
+                <span class="mega-card__label headline-outline">View Full Menu</span>
+              </a>
+              <a href="menus.html#cat-signatures" class="mega-card">
+                <img src="assets/images/hero-spread.jpg" alt="Signatures" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Signatures</span>
+              </a>
+              <a href="menus.html#cat-sandwiches" class="mega-card">
+                <img src="assets/images/tile-sandwiches.jpg" alt="Sandwiches" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sandwiches</span>
+              </a>
+              <a href="menus.html#cat-wraps" class="mega-card">
+                <img src="assets/images/tile-wraps.jpg" alt="Wraps" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Wraps</span>
+              </a>
+              <a href="menus.html#cat-salads" class="mega-card">
+                <img src="assets/images/tile-salads.jpg" alt="Salads" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Salads</span>
+              </a>
+              <a href="menus.html#cat-tenders" class="mega-card">
+                <img src="assets/images/menu-tenders.jpg" alt="Tenders &amp; Combos" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Tenders &amp; Combos</span>
+              </a>
+              <a href="menus.html#cat-sides" class="mega-card">
+                <img src="assets/images/made-to-order.jpg" alt="Sides" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sides</span>
+              </a>
+              <a href="menus.html#cat-breakfast" class="mega-card">
+                <img src="assets/images/menu-breakfast.jpg" alt="Breakfast" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Breakfast</span>
+              </a>
+              <a href="menus.html#cat-toasts" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Toasts</span>
+              </a>
+              <a href="menus.html#cat-coffee" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Coffee &amp; Drinks</span>
+              </a>
+              <a href="menus.html#cat-juices" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Juices &amp; Smoothies</span>
+              </a>
+              <a href="menus.html#cat-grabgo" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Grab &amp; Go</span>
+              </a>
+              <a href="menus.html#cat-sweets" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Sweets</span>
+              </a>
+              <a href="menus.html#cat-sauces" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">House Sauces</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="blog.html">Journal</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo-teal.png" alt="Spring Chicken">
+    </a>
+
+    <div class="site-header__actions">
+      <div class="nav-item nav-item--mega">
+        <a href="franchise.html">Investors <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="franchise.html" class="mega-menu__link">Franchise Opportunity</a>
+            <a href="media-kit.html" class="mega-menu__link">Media Kit</a>
+            <a href="investor-relations.html" class="mega-menu__link">Investor Relations</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn btn--teal btn--sm">Order Now</a>
+      <button class="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+<main>
+
+  <!-- PAGE HERO — same reusable template as our-story.html, brown variant
+       (see .page-hero--brown in css/home.css). Same left-to-right slide +
+       text-reveal entrance, driven by the same initPageHero in js/main.js. -->
+  <section class="page-hero page-hero--brown">
+    <div class="page-hero__bg"></div>
+    <div class="page-hero__content">
+      <h1 class="page-hero__title">Franchise Opportunity</h1>
+      <p class="page-hero__eyebrow">A brand built for high-traffic venues, engineered for the economics of captive-audience environments</p>
+    </div>
+  </section>
+
+  <!-- KPI / STATS — reuses the same .stats component as the About page.
+       Numbers pulled from the client's existing site (springchicken.
+       everythingyouneedmarketing.com/franchise) rather than invented. -->
+  <section class="stats">
+    <div class="stats__panel">
+      <p class="tile-eyebrow stats__intro">Spring Chicken is engineered for the unique economics of captive-audience environments — airports, stadiums, arenas, and high-volume travel hubs. Miami, Las Vegas, Dallas — and more on the way.</p>
+      <div class="stats__grid">
+        <div class="stats__item">
+          <span class="stats__number">3</span>
+          <span class="stats__label">Active flagship locations</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">50M+</span>
+          <span class="stats__label">Annual foot traffic across current venues</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">1</span>
+          <span class="stats__label">Proven operator behind every location</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO — reuses the same .split layout as the About page, including
+       the split__text--center modifier so the h2 matches the About page's
+       teal (not black) heading treatment. -->
+  <div class="story-rows">
+    <section class="split">
+      <div class="split__media">
+        <div class="split__media__frame">
+          <img src="assets/images/digital-1-stack.jpg" alt="Stacked Spring Chicken sandwiches" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="split__text split__text--center">
+        <span class="script-accent">Own A Piece Of The Flock</span>
+        <h2>A Brand Built For High-Traffic Venues</h2>
+        <p>Spring Chicken is available in select airports, stadiums, arenas, and high-volume travel hubs, backed by the operating discipline of 50 Eggs Hospitality Group. This page will house franchise materials, unit economics, and the application process as they become available.</p>
+        <a href="contact.html" class="btn btn--teal btn--sm">Contact Franchise Development</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- IDEAL VENUES — reuses the same borderless image/title/body row as
+       the About page's "Team Behind It" section (.story-scroll). Venue
+       photos reused from the homepage's Iconic Locations imagery, since
+       those are already shot in exactly these settings (Miami airport,
+       Las Vegas stadium, Dallas arena). -->
+  <section class="story-scroll">
+    <div class="story-scroll__heading">
+      <h2>Ideal<br>Venues</h2>
+      <p>Four venue types, one economic model: captive audiences, predictable demand, and repeat volume.</p>
+    </div>
+    <div class="story-scroll__row">
+      <div class="mega-menu__cards story-scroll__track">
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/location-miami.jpg" alt="Miami International Airport" loading="lazy" decoding="async">
+          </div>
+          <h3>Airports</h3>
+          <p>Captive-audience traffic and predictable demand, day in and day out.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/location-burbank.jpg" alt="Allegiant Stadium" loading="lazy" decoding="async">
+          </div>
+          <h3>Stadiums</h3>
+          <p>Peak-hour throughput and high per-cap velocity on event days.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/location-lasvegas.jpg" alt="American Airlines Center" loading="lazy" decoding="async">
+          </div>
+          <h3>Arenas</h3>
+          <p>Compressed service windows with repeat seasonal volume.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/made-to-order.jpg" alt="Travel hub concourse" loading="lazy" decoding="async">
+          </div>
+          <h3>Travel Hubs</h3>
+          <p>Transit terminals built for speed, consistency, and brand recognition.</p>
+        </div>
+      </div>
+      <button type="button" class="scroll-next" aria-label="Scroll to next">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- APPLY / TERRITORY INQUIRY FORM — structure copied from the client's
+       Canva brand book reference: eyebrow + two-tone script/bold heading,
+       intro line, then a 2-col field grid. Colors normalized to our site
+       tokens (teal/red) rather than the reference's own palette. Static
+       markup only — no submit handler wired up yet. -->
+  <section class="apply-form">
+    <div class="apply-form__inner">
+      <span class="script-accent script-accent--red">Apply</span>
+      <h2 class="apply-form__title">Start Your Inquiry</h2>
+      <p class="apply-form__intro">Tell us a little about you and the territory you have in mind. We'll be in touch within five business days.</p>
+      <form class="apply-form__grid" onsubmit="return false;">
+        <div class="form-field">
+          <label for="af-name">Full Name</label>
+          <input type="text" id="af-name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="af-email">Email</label>
+          <input type="email" id="af-email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="af-phone">Phone</label>
+          <input type="tel" id="af-phone" name="phone">
+        </div>
+        <div class="form-field">
+          <label for="af-venue">Target City or Venue</label>
+          <input type="text" id="af-venue" name="venue" placeholder="e.g. Atlanta &middot; ATL Airport">
+        </div>
+        <div class="form-field">
+          <label for="af-capital">Available Capital</label>
+          <select id="af-capital" name="capital">
+            <option value="" selected>Select a range</option>
+            <option value="250-500k">$250K &ndash; $500K</option>
+            <option value="500k-1m">$500K &ndash; $1M</option>
+            <option value="1m+">$1M+</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="af-experience">Restaurant Experience</label>
+          <select id="af-experience" name="experience">
+            <option value="" selected>Select background</option>
+            <option value="operator">Current Operator</option>
+            <option value="investor">Investor / Group</option>
+            <option value="none">New to Restaurants</option>
+          </select>
+        </div>
+        <div class="form-field form-field--full">
+          <label for="af-message">Message <span class="form-field__optional">(optional)</span></label>
+          <textarea id="af-message" name="message" rows="4" placeholder="Tell us about your background and the venue you have in mind."></textarea>
+        </div>
+        <div class="form-field--full">
+          <button type="submit" class="btn btn--teal btn--sm">Submit Inquiry</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="container">
+      <div class="site-footer__cta">
+        <h2>Join the coop</h2>
+        <p>Sign up for menu drops, new locations, and offers — your next stop before the coop.</p>
+        <form class="site-footer__form" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn--outline-light btn--sm">Sign Up</button>
+        </form>
+      </div>
+      <div class="site-footer__social">
+        <p class="site-footer__social-label">Join the flock:<br>@springchicken</p>
+        <div class="site-footer__social-icons">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 8.5h2V5.5h-2c-2.2 0-3.5 1.4-3.5 3.5v2H9.5v3H11.5V19h3v-6h2.1l.4-3H14.5V9c0-.4.2-.5.5-.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16.3" cy="7.7" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4.5v10.8a2.7 2.7 0 1 1-2.2-2.66" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 7.2c1 1.6 2.5 2.6 4.3 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <a href="#" class="btn btn--outline-light btn--sm">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <p class="footer-col-title">Our Menu</p>
+        <ul>
+          <li><a href="menus.html#cat-signatures">Signatures</a></li>
+          <li><a href="menus.html#cat-sandwiches">Sandwiches</a></li>
+          <li><a href="menus.html#cat-wraps">Wraps</a></li>
+          <li><a href="menus.html#cat-salads">Salads</a></li>
+          <li><a href="menus.html#cat-tenders">Tenders &amp; Combos</a></li>
+          <li><a href="menus.html#cat-sides">Sides</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Learn</p>
+        <ul>
+          <li><a href="our-story.html">Our Story</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="franchise.html">Franchise</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Support</p>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="media-kit.html">Media Kit</a></li>
+          <li><a href="investor-relations.html">Investor Relations</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>A 50 Eggs Hospitality Group concept.</span>
+      <span>&copy; Spring Chicken 2026 &mdash; Site by <a href="https://loopaible.com" target="_blank" rel="noopener">Loopaible</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="js/main.js?v=90"></script>
+</body>
+</html>

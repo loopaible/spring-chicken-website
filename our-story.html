@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Chicken — Our Story</title>
+<meta name="description" content="Born from the kitchen culture of Yardbird, Spring Chicken brings chef-driven, never-frozen chicken to the places people move through every day.">
+<link rel="stylesheet" href="css/base.css?v=90">
+<link rel="stylesheet" href="css/home.css?v=90">
+</head>
+<body>
+
+<!-- ==========================================================================
+     PROTOTYPE NOTES (remove before final handoff)
+     - Copy pulled directly from the client's "SPRING CHICKEN WEBSITE FLOW"
+       brief (Web Copy from Client/), Our Story section.
+     - No dedicated photography exists yet for the story/50 Eggs rows —
+       reused hero-spread.jpg and farm-banner.jpg as placeholders; only
+       John Kunkel's row uses a confirmed final image.
+     - Timeline section (below the three story rows) has no client content
+       or imagery yet — every entry is lorem ipsum with the same photo
+       repeated, purely to block out the layout per client request.
+     ========================================================================== -->
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <nav class="main-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <div class="nav-item nav-item--mega">
+        <a href="our-story.html">About <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="our-story.html" class="mega-menu__link">Our Story</a>
+            <a href="contact.html" class="mega-menu__link">Contact</a>
+            <a href="locations.html" class="mega-menu__link">Locations</a>
+            <a href="careers.html" class="mega-menu__link">Careers</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item nav-item--mega">
+        <a href="menus.html">View Menu <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__inner">
+            <div class="mega-menu__cards">
+              <a href="menus.html" class="mega-card mega-card--cta">
+                <span class="mega-card__label headline-outline">View Full Menu</span>
+              </a>
+              <a href="menus.html#cat-signatures" class="mega-card">
+                <img src="assets/images/hero-spread.jpg" alt="Signatures" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Signatures</span>
+              </a>
+              <a href="menus.html#cat-sandwiches" class="mega-card">
+                <img src="assets/images/tile-sandwiches.jpg" alt="Sandwiches" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sandwiches</span>
+              </a>
+              <a href="menus.html#cat-wraps" class="mega-card">
+                <img src="assets/images/tile-wraps.jpg" alt="Wraps" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Wraps</span>
+              </a>
+              <a href="menus.html#cat-salads" class="mega-card">
+                <img src="assets/images/tile-salads.jpg" alt="Salads" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Salads</span>
+              </a>
+              <a href="menus.html#cat-tenders" class="mega-card">
+                <img src="assets/images/menu-tenders.jpg" alt="Tenders &amp; Combos" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Tenders &amp; Combos</span>
+              </a>
+              <a href="menus.html#cat-sides" class="mega-card">
+                <img src="assets/images/made-to-order.jpg" alt="Sides" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Sides</span>
+              </a>
+              <a href="menus.html#cat-breakfast" class="mega-card">
+                <img src="assets/images/menu-breakfast.jpg" alt="Breakfast" loading="lazy" decoding="async">
+                <span class="mega-card__label headline-outline">Breakfast</span>
+              </a>
+              <a href="menus.html#cat-toasts" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Toasts</span>
+              </a>
+              <a href="menus.html#cat-coffee" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Coffee &amp; Drinks</span>
+              </a>
+              <a href="menus.html#cat-juices" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Juices &amp; Smoothies</span>
+              </a>
+              <a href="menus.html#cat-grabgo" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Grab &amp; Go</span>
+              </a>
+              <a href="menus.html#cat-sweets" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">Sweets</span>
+              </a>
+              <a href="menus.html#cat-sauces" class="mega-card">
+                <span class="mega-card__placeholder-note">Needs photo</span>
+                <span class="mega-card__label headline-outline">House Sauces</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="blog.html">Journal</a>
+    </nav>
+
+    <a href="index.html" class="logo">
+      <img src="assets/images/logo-teal.png" alt="Spring Chicken">
+    </a>
+
+    <div class="site-header__actions">
+      <div class="nav-item nav-item--mega">
+        <a href="franchise.html">Investors <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5L6 6.5L11 1.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="mega-menu">
+          <div class="mega-menu__links">
+            <a href="franchise.html" class="mega-menu__link">Franchise Opportunity</a>
+            <a href="media-kit.html" class="mega-menu__link">Media Kit</a>
+            <a href="investor-relations.html" class="mega-menu__link">Investor Relations</a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn btn--teal btn--sm">Order Now</a>
+      <button class="nav-toggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="smooth-wrapper">
+<div id="smooth-content">
+
+<main>
+
+  <!-- PAGE HERO — reusable inner-page template (solid brand-red, no photo,
+       ~50vh, full-bleed edge to edge). Meant to be reused verbatim on
+       other inner pages (menus, locations, franchise, etc.), swapping
+       only the title/eyebrow text. See .page-hero in css/home.css and
+       initPageHero in js/main.js for the slide-down + text-reveal entrance. -->
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="page-hero__content">
+      <h1 class="page-hero__title">Our Story</h1>
+      <p class="page-hero__eyebrow">Chicken is the star — crispy or grilled, fresh to order, never frozen</p>
+    </div>
+  </section>
+
+  <!-- FOUNDER QUOTE — same .split layout as the homepage's Story/Farm-Fresh/
+       Bring-the-Coop rows, plus a play-button overlay on the photo for a
+       future voice note from the founder (no audio yet — placeholder,
+       same pattern as the "Needs photo" badges elsewhere on the site). -->
+  <div class="story-rows">
+    <section class="split split--portrait">
+      <div class="split__media">
+        <div class="split__media__frame split__media__frame--portrait">
+          <img src="assets/images/founder-john-kunkel.jpg" alt="John Kunkel, Founder &amp; CEO of Spring Chicken" loading="lazy" decoding="async">
+        </div>
+        <!-- DEMO PLACEHOLDER — plays the quote/note text below via the
+             browser's built-in text-to-speech (window.speechSynthesis), a
+             generic system voice, purely to preview the waveform
+             interaction. This is NOT John Kunkel's real voice and must be
+             swapped for a real recorded voiceover file before launch (see
+             initFounderVoicePlayer in js/main.js). -->
+        <button type="button" class="media-play" aria-label="Play voice note from our founder" aria-pressed="false">
+          <svg class="media-play__icon media-play__icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z" fill="currentColor"/></svg>
+          <svg class="media-play__icon media-play__icon--pause" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+        </button>
+        <div class="voice-waveform" aria-hidden="true"></div>
+      </div>
+      <div class="split__text split__text--quote">
+        <h2>Fast casual and quality were never meant to be a compromise</h2>
+        <div class="split__text__note" data-voice-note>
+          <span class="script-accent">A Note From Our Founder, John Kunkel</span>
+          <p>Chicken is the star — crispy or grilled, fresh to order, never frozen. We're always striving for sustainability by sourcing local ingredients as often as possible. Our birds are 100% natural, with no steroids, hormones, or antibiotics, and Spring Chicken's packaging is produced to be lean and green with eco-friendly, recyclable materials.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- TIMELINE — no client copy or photography yet, so every entry below
+       is lorem ipsum with hero-spread.jpg repeated, purely to block out
+       the layout per client request. Built entirely from existing
+       components: the year tabs reuse the same click-to-scroll pattern as
+       the menu subnav, the card row reuses .mega-menu__cards (horizontal
+       drag/scroll, already wired up generically in js/main.js), and each
+       card reuses .location-card (image on top, caption below). -->
+  <section class="timeline">
+    <div class="timeline__head">
+      <h2 class="timeline__heading">Our journey<br>since 0000</h2>
+
+      <nav class="timeline-tabs" aria-label="Timeline year">
+        <a href="#year-2012" class="is-active">2012</a>
+        <a href="#year-2013">2013</a>
+        <a href="#year-2015">2015</a>
+        <a href="#year-2016">2016</a>
+        <a href="#year-2017">2017</a>
+        <a href="#year-2019">2019</a>
+        <a href="#year-2020">2020</a>
+        <a href="#year-2021">2021</a>
+        <a href="#year-2022">2022</a>
+        <a href="#year-2024">2024</a>
+        <a href="#year-2025">2025</a>
+        <a href="#year-2026">2026</a>
+      </nav>
+    </div>
+
+      <div class="mega-menu__cards timeline-track">
+        <div class="timeline-card" id="year-2012">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="timeline-card" id="year-2013">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        </div>
+        <div class="timeline-card" id="year-2015">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+        <div class="timeline-card" id="year-2016">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+        </div>
+        <div class="timeline-card" id="year-2017">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+        </div>
+        <div class="timeline-card" id="year-2019">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="timeline-card" id="year-2020">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        </div>
+        <div class="timeline-card" id="year-2021">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        </div>
+        <div class="timeline-card" id="year-2022">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+        </div>
+        <div class="timeline-card" id="year-2024">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
+        </div>
+        <div class="timeline-card" id="year-2025">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="timeline-card" id="year-2026">
+          <div class="timeline-card__media">
+            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+          </div>
+          <p class="timeline-card__caption">Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+        </div>
+      </div>
+  </section>
+
+  <!-- 2 ROWS — same alternating .split--center layout (script-accent kicker
+       + bold centered statement) as the homepage's Story/Farm-Fresh/
+       Bring-the-Coop rows, but with its own distinct content about the
+       team's standard of craft and its approach to growth, rather than
+       repeating the homepage's ingredients/venue-type angles. -->
+  <div class="story-rows">
+    <section class="split">
+      <div class="split__media">
+        <div class="split__media__frame">
+          <img src="assets/images/made-to-order.jpg" alt="Spring Chicken seasoned wedges" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="split__text split__text--center">
+        <span class="script-accent">A Standard, Not A Slogan</span>
+        <h2>Every location is trained to the same standard — hand-breaded, made to order, no shortcuts, no exceptions</h2>
+      </div>
+    </section>
+
+    <section class="split split--media-right">
+      <div class="split__media">
+        <div class="split__media__frame">
+          <img src="assets/images/location-dallas.jpg" alt="Dallas, TX — Reunion Tower" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="split__text split__text--center">
+        <span class="script-accent">Growing With Intention</span>
+        <h2>From our first location to the next city, we're scaling deliberately — never rushing past the standard that got us here</h2>
+      </div>
+    </section>
+  </div>
+
+  <!-- KPI / STATS — no client copy or numbers yet, so both the intro line
+       and every stat below are placeholder content, purely to block out
+       the layout per client request. Reuses .tile-eyebrow (the same
+       white-on-color subhead style as the hero) for the intro paragraph;
+       the big numerals are the only genuinely new type treatment on the
+       page, since nothing like it exists elsewhere on the site. -->
+  <section class="stats">
+    <div class="stats__panel">
+      <p class="tile-eyebrow stats__intro">Making great fast-casual isn't easy. We hand-bread every order, source ingredients we can stand behind, and build kitchens that keep up with the busiest venues in the country. The numbers don't tell the whole story, but they're a start.</p>
+      <div class="stats__grid">
+        <div class="stats__item">
+          <span class="stats__number">8+</span>
+          <span class="stats__label">Years serving guests</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">2</span>
+          <span class="stats__label">High-traffic locations</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">50K+</span>
+          <span class="stats__label">Guests served every month</span>
+        </div>
+        <div class="stats__item">
+          <span class="stats__number">10K+</span>
+          <span class="stats__label">Lbs of chicken hand-breaded weekly</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 50 EGGS / FOUNDER DETAIL — large, borderless, horizontally-scrolling
+       row (image, then title + description directly underneath, no card
+       background/padding), matching the client's reference layout. Reuses
+       .mega-menu__cards for the drag/scroll row (already wired up
+       generically in js/main.js), same pattern as the timeline above. -->
+  <!-- PROTOTYPE NOTE: descriptions for Yardbird and the sibling concepts
+       (Wakuda, Chica, Golden Gai, Bonanno Brothers) are placeholder copy —
+       the client brief only lists the names, no descriptions yet. Same
+       for their photos, which reuse existing Spring Chicken imagery until
+       each concept has its own. -->
+  <section class="story-scroll">
+    <div class="story-scroll__heading">
+      <h2>The Team<br>Behind It</h2>
+      <p>Behind Spring Chicken is a team of operators who've spent decades building and scaling some of the country's most respected hospitality brands. Here are some of the other concepts the team has built.</p>
+    </div>
+    <div class="story-scroll__row">
+      <div class="mega-menu__cards story-scroll__track">
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/farm-banner.jpg" alt="Yardbird" loading="lazy" decoding="async">
+          </div>
+          <h3>Yardbird</h3>
+          <p>The celebrated Southern-inspired chicken concept that started it all — one of the most respected fried chicken kitchens in the country, and the roots Spring Chicken was built from.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/hero-spread.jpg" alt="Wakuda" loading="lazy" decoding="async">
+          </div>
+          <h3>Wakuda</h3>
+          <p>A vibrant celebration of Japanese-Peruvian Nikkei cuisine, pairing bold, chef-driven flavors with a striking, larger-than-life dining room.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/tile-sandwiches.jpg" alt="Chica" loading="lazy" decoding="async">
+          </div>
+          <h3>Chica</h3>
+          <p>Latin-inspired small plates and craft cocktails from Chef Lorena Garcia, built for sharing and built for a scene.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/made-to-order.jpg" alt="Golden Gai" loading="lazy" decoding="async">
+          </div>
+          <h3>Golden Gai</h3>
+          <p>An izakaya-style tribute to Tokyo's legendary back-alley bars — small plates, big flavor, and a room that feels like a secret.</p>
+        </div>
+        <div class="story-scroll__item">
+          <div class="story-scroll__item-media">
+            <img src="assets/images/menu-breakfast.jpg" alt="Bonanno Brothers" loading="lazy" decoding="async">
+          </div>
+          <h3>Bonanno Brothers</h3>
+          <p>Wood-fired pizza and Italian-American comfort food, made with the same obsession for quality that runs through every 50 Eggs concept.</p>
+        </div>
+      </div>
+      <button type="button" class="scroll-next" aria-label="Scroll to next">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="container">
+      <div class="site-footer__cta">
+        <h2>Join the coop</h2>
+        <p>Sign up for menu drops, new locations, and offers — your next stop before the coop.</p>
+        <form class="site-footer__form" onsubmit="return false;">
+          <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+          <button type="submit" class="btn btn--outline-light btn--sm">Sign Up</button>
+        </form>
+      </div>
+      <div class="site-footer__social">
+        <p class="site-footer__social-label">Join the flock:<br>@springchicken</p>
+        <div class="site-footer__social-icons">
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 8.5h2V5.5h-2c-2.2 0-3.5 1.4-3.5 3.5v2H9.5v3H11.5V19h3v-6h2.1l.4-3H14.5V9c0-.4.2-.5.5-.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4.5" y="4.5" width="15" height="15" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="16.3" cy="7.7" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 4.5v10.8a2.7 2.7 0 1 1-2.2-2.66" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 7.2c1 1.6 2.5 2.6 4.3 2.8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+        <a href="#" class="btn btn--outline-light btn--sm">Order Now</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="site-footer__grid">
+      <div>
+        <p class="footer-col-title">Our Menu</p>
+        <ul>
+          <li><a href="menus.html#cat-signatures">Signatures</a></li>
+          <li><a href="menus.html#cat-sandwiches">Sandwiches</a></li>
+          <li><a href="menus.html#cat-wraps">Wraps</a></li>
+          <li><a href="menus.html#cat-salads">Salads</a></li>
+          <li><a href="menus.html#cat-tenders">Tenders &amp; Combos</a></li>
+          <li><a href="menus.html#cat-sides">Sides</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Learn</p>
+        <ul>
+          <li><a href="our-story.html">Our Story</a></li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="franchise.html">Franchise</a></li>
+          <li><a href="careers.html">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Support</p>
+        <ul>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="media-kit.html">Media Kit</a></li>
+          <li><a href="investor-relations.html">Investor Relations</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>A 50 Eggs Hospitality Group concept.</span>
+      <span>&copy; Spring Chicken 2026 &mdash; Site by <a href="https://loopaible.com" target="_blank" rel="noopener">Loopaible</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="js/main.js?v=90"></script>
+</body>
+</html>

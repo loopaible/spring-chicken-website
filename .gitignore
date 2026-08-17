@@ -1,0 +1,8 @@
+.DS_Store
+
+# Raw source assets — large originals live locally, not in git.
+# The site only references the optimized copies in /assets.
+/Images/
+/Font/
+spring chicek logo blue.png
+photo of john k.jpg

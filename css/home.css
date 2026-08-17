@@ -1,0 +1,1521 @@
+/* ==========================================================================
+   Spring Chicken — Homepage layout
+   ========================================================================== */
+
+/* ---- Header ---- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Higher than any other fixed element on the page (the menu subnav's
+     sticky clone is z-index:60 — see css/menu.css) so the mega-menu
+     dropdowns nested inside the header, however high their own z-index,
+     aren't trapped under it. A positioned ancestor with its own z-index
+     creates a stacking context: children can never out-rank elements
+     outside that context no matter what z-index they're given — only
+     raising the ancestor's own z-index escapes that. */
+  z-index: 90;
+  background: var(--sc-white);
+}
+.site-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding-block: 14px;
+  padding-inline: var(--gutter);
+}
+/* Logo is taken out of flex flow and centered independent of the nav's
+   and actions' widths, so it stays dead-center regardless of how many
+   nav items there are or how wide the Order Now button gets. */
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 1.8vw, 26px);
+}
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+}
+.main-nav > a,
+.main-nav > .nav-item--mega > a,
+.site-header__actions > .nav-item--mega > a {
+  position: relative;
+  padding-bottom: 4px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-teal);
+}
+.nav-caret {
+  display: inline-block;
+  width: 9px;
+  height: 6px;
+  margin-left: 5px;
+  vertical-align: middle;
+  transition: transform 0.25s ease;
+}
+
+/* ---- Header dropdowns: "About", "View Menu", and "Investors" all share
+   this hover/focus-reveal panel — pure CSS, no JS needed to open/close
+   it — and the exact same two-column layout inside: a title on the left,
+   a row of image cards on the right. The cards themselves reuse the same
+   title/description/hover-fill treatment as the menu page's item cards
+   (see .menu-card in css/menu.css), so every dropdown "keeps the same
+   kind of structure" as each other and as the rest of the site. ---- */
+.nav-item--mega {
+  position: static;
+  display: flex;
+  align-items: center;
+}
+.nav-item--mega.is-open .nav-caret,
+.nav-item--mega:focus-within .nav-caret {
+  transform: rotate(180deg);
+}
+.mega-menu {
+  position: fixed;
+  top: var(--header-h, 66px);
+  left: 0;
+  right: 0;
+  z-index: 70;
+  background: var(--sc-white);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.4s;
+}
+.nav-item--mega.is-open .mega-menu,
+.nav-item--mega:focus-within .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s;
+}
+.mega-menu__inner {
+  padding: 36px var(--gutter) 40px;
+}
+/* Simple text-link variant (About / Investors dropdowns) — no title, no
+   image cards, just an underline-on-hover link row. */
+.mega-menu__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 40px;
+  padding: 28px var(--gutter);
+}
+/* The dropdown panel itself is still the same full-width fixed bar as
+   every other mega-menu (see .mega-menu) — but Investors now lives on the
+   right side of the header, so its link row is right-aligned within that
+   bar to land under the trigger instead of defaulting to the left. */
+.site-header__actions .mega-menu__links {
+  justify-content: flex-end;
+}
+.mega-menu__link {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sc-teal);
+}
+.mega-menu__link:hover {
+  text-decoration: underline;
+}
+.mega-menu__cards {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  min-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+.mega-menu__cards.is-dragging {
+  cursor: grabbing;
+}
+.mega-menu__cards::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card: full-bleed photo with the title overlaid at the bottom in the
+   headline-outline treatment — same look as the original "Explore Our
+   Menu" carousel card. */
+.mega-card {
+  flex: 0 0 auto;
+  width: 168px;
+  aspect-ratio: 3 / 4;
+  position: relative;
+  overflow: hidden;
+  color: var(--sc-white);
+  display: block;
+  background: linear-gradient(135deg, var(--sc-brown), #2c1a08);
+}
+.mega-card img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mega-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(9, 96, 109, 0) 45%, rgba(9, 20, 22, 0.82) 100%);
+}
+/* Hover fill — slides down from the top instead of zooming the photo,
+   cycling through the three brand colors card by card. */
+.mega-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--sc-teal);
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.mega-card:nth-child(3n+2)::before {
+  background: var(--sc-red);
+}
+.mega-card:nth-child(3n+3)::before {
+  background: var(--sc-brown);
+}
+.mega-card:hover::before {
+  transform: translateY(0);
+}
+.mega-card__placeholder-note {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  color: var(--sc-white);
+  background: var(--sc-red);
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+.mega-card__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  padding: 14px;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  -webkit-text-stroke: 0.6px var(--sc-teal);
+  text-stroke: 0.6px var(--sc-teal);
+  text-shadow: 0 0 1px var(--sc-teal);
+}
+
+/* "View Full Menu" CTA card — no photo, solid brand-teal fill instead of
+   the photo + dark-gradient treatment. */
+.mega-card--cta {
+  display: flex;
+  align-items: flex-end;
+  background: var(--sc-teal);
+}
+.mega-card--cta::after {
+  display: none;
+}
+.mega-card--cta::before {
+  background: var(--sc-ink);
+}
+.mega-card--cta .mega-card__label {
+  position: static;
+  z-index: 3;
+  padding: 14px;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--sc-ink);
+  margin: 5px 0;
+}
+
+/* ---- Hero ---- */
+.hero {
+  background: var(--sc-white);
+  padding: 12px 12px 0;
+}
+.hero__frame {
+  position: relative;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--sc-brown);
+}
+.hero__frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 60% 30%;
+}
+.hero__frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(20, 14, 8, 0.72) 0%, rgba(20, 14, 8, 0.42) 45%, rgba(20, 14, 8, 0.08) 75%);
+}
+.hero__content {
+  position: relative;
+  z-index: 1;
+  color: var(--sc-white);
+  max-width: 520px;
+  padding: 0 var(--gutter);
+}
+.hero__content h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  margin-bottom: 16px;
+}
+.hero__content p.tile-eyebrow {
+  max-width: 400px;
+  margin-bottom: 28px;
+}
+.hero .sticker-slot {
+  top: 28px;
+  left: var(--gutter);
+  --sticker-size: 92px;
+  border-color: var(--sc-white);
+  color: var(--sc-white);
+  background: rgba(237, 34, 49, 0.18);
+}
+
+/* ---- Page hero (template) — reusable inner-page hero: solid brand red,
+   no photo, ~50vh, full-bleed edge to edge. Swap only the title/eyebrow
+   text when reusing this on other inner pages. See initPageHero in
+   js/main.js for the slide-down + text-reveal entrance. ---- */
+.page-hero {
+  position: relative;
+  height: 50vh;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.page-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: var(--sc-red);
+}
+/* Color modifiers — apply to .page-hero (e.g. class="page-hero page-hero--brown")
+   so other inner pages can reuse the exact same template/entrance with a
+   different brand color instead of the default red. */
+.page-hero--brown .page-hero__bg {
+  background: var(--sc-brown);
+}
+.page-hero--teal .page-hero__bg {
+  background: var(--sc-teal);
+}
+.page-hero__content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding-inline: var(--gutter);
+}
+.page-hero__title {
+  color: var(--sc-cream);
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  margin-bottom: 16px;
+  /* Stays invisible until initPageHero explicitly reveals it (right as the
+     bg finishes sliding down) — without this, the plain unsplit text
+     flashes visible for a moment before SplitText masks and re-animates
+     it, which read as a glitch. */
+  opacity: 0;
+}
+.page-hero__eyebrow {
+  display: block;
+  color: var(--sc-cream);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.0625rem, 1.8vw, 1.375rem);
+  max-width: 420px;
+  opacity: 0;
+}
+
+/* ---- Signature tiles (Sandwiches / Wraps / Salads) ---- */
+.signature-tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  background: var(--sc-white);
+  padding: 12px;
+}
+.signature-tile {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  color: var(--sc-white);
+}
+.signature-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.signature-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 14, 8, 0.7) 0%, rgba(20, 14, 8, 0) 45%);
+}
+.signature-tile__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding: 40px 24px 24px;
+  text-align: center;
+}
+.signature-tile__label h3 {
+  font-size: clamp(1.625rem, 3.2vw, 2.75rem);
+  color: var(--sc-white);
+  margin-bottom: 14px;
+}
+.signature-tiles .sticker-slot {
+  top: 20px;
+  right: 20px;
+  --sticker-size: 76px;
+}
+.signature-tile { overflow: hidden; }
+
+/* ---- Press strip: auto-scrolling logo ticker ---- */
+.press-strip {
+  background: var(--sc-white);
+  padding-block: 24px;
+  overflow: hidden;
+}
+.press-strip__row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-left: var(--gutter);
+}
+.press-strip__label {
+  flex: 0 0 auto;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sc-teal);
+  white-space: nowrap;
+}
+.press-ticker {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.press-ticker__track {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 5vw, 72px);
+  width: max-content;
+  animation: press-scroll 32s linear infinite;
+}
+.press-ticker:hover .press-ticker__track {
+  animation-play-state: paused;
+}
+.press-logo-mask {
+  display: block;
+  flex: 0 0 auto;
+  height: 24px;
+  background-color: var(--sc-teal);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+.press-logo-mask:hover {
+  opacity: 1;
+}
+@keyframes press-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .press-ticker__track { animation: none; flex-wrap: wrap; justify-content: flex-start; }
+}
+
+/* ---- Split feature sections (Story / Farm-Fresh / Bring-the-Coop) ----
+   Wrapped together in .story-rows so the cream background is continuous
+   behind all three rows and the gap between them reads as cream, not the
+   white page background. */
+.story-rows {
+  background: var(--sc-cream);
+  padding-top: 180px;
+  padding-bottom: 96px;
+}
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 28px;
+}
+.split + .split {
+  margin-top: 120px;
+}
+.split__media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+.split__media__frame {
+  position: relative;
+  width: 100%;
+  max-width: 75%;
+  aspect-ratio: 1 / 1;
+  /* No overflow:hidden here — the img is already sized to exactly this
+     box (width/height:100% + object-fit:cover below), so nothing needs
+     clipping. Removing it lets .sticker-spot children (positioned with a
+     deliberate negative top/left to overlap the frame's corner) render
+     without getting cut off. */
+}
+.split__media__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.split__media__frame--portrait {
+  aspect-ratio: 9 / 16;
+  max-width: 380px;
+}
+
+/* Portrait founder-quote row (our-story.html) — the media column shrinks
+   to fit the narrower portrait frame instead of stretching a full 1fr
+   grid track, and the whole row centers as a unit (image pulled in close
+   to the text) while the text itself stays left-aligned within its own
+   column, same as every other .split__text. */
+.split--portrait {
+  grid-template-columns: auto minmax(0, 560px);
+  justify-content: center;
+  gap: 24px;
+  padding-block: 96px;
+}
+.split--portrait .split__media {
+  padding: 0;
+}
+.split__text {
+  padding: clamp(32px, 6vw, 96px);
+}
+.split__text h2 {
+  font-size: clamp(1.125rem, 2vw, 1.6rem);
+  color: var(--sc-ink);
+  margin-bottom: 20px;
+  max-width: 20ch;
+}
+.split__text p {
+  color: #4a4038;
+  margin-bottom: 16px;
+  max-width: 46ch;
+}
+.split__text .btn {
+  margin-top: 12px;
+}
+
+/* Quote + attributed note variant (our-story.html) — same h2/script-accent/
+   p styles as every other .split__text, just broken into two visually
+   separate blocks instead of one dense run of paragraphs. */
+.split__text--quote h2 {
+  color: var(--sc-teal);
+  text-transform: none;
+  font-weight: 400;
+  max-width: 16ch;
+}
+.split__text__note {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(34, 26, 18, 0.12);
+}
+.split__text__note .script-accent {
+  margin-bottom: 10px;
+}
+.split__text__note p {
+  color: var(--sc-teal);
+}
+
+/* Play-button overlay on a .split__media photo — voice-note placeholder,
+   same idea as the "Needs photo" badges used elsewhere on the site before
+   real assets exist. */
+.media-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-pill);
+  background: var(--sc-white);
+  color: var(--sc-teal);
+  border: none;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.media-play svg {
+  width: 22px;
+  height: 22px;
+  margin-left: 2px;
+}
+.media-play__icon--pause {
+  margin-left: 0;
+}
+
+/* Animated waveform — appears under the play button while the voice note
+   is "speaking" (see initFounderVoicePlayer in js/main.js). Bars pulse via
+   CSS keyframes with randomized per-bar timing (set inline by JS) rather
+   than analyzing real audio, since there's no real recording yet. */
+.voice-waveform {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 32px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(9, 96, 109, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.voice-waveform.is-playing {
+  opacity: 1;
+}
+.voice-waveform__bar {
+  display: block;
+  width: 3px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--sc-cream);
+}
+.voice-waveform.is-playing .voice-waveform__bar {
+  animation: voice-wave-bar 0.9s ease-in-out infinite;
+  animation-play-state: running;
+}
+.voice-waveform:not(.is-playing) .voice-waveform__bar {
+  animation-play-state: paused;
+}
+@keyframes voice-wave-bar {
+  0%, 100% { height: 4px; }
+  50% { height: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voice-waveform__bar { animation: none !important; height: 14px; }
+}
+
+.split--media-right .split__media { order: 2; }
+
+/* ---- Story scroll (our-story.html) — large, borderless, horizontally-
+   scrolling 3-up row: no card background/padding, just a big photo with
+   the title and description sitting directly underneath on the page's
+   own white background. Reuses .mega-menu__cards for the drag/scroll
+   mechanics (already wired up generically in js/main.js). Text is teal
+   throughout, matching every other heading/body color on the site. ---- */
+.story-scroll {
+  position: relative;
+  background: var(--sc-white);
+  padding-block: 96px;
+}
+.story-scroll__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-inline: var(--gutter);
+  margin-bottom: 40px;
+}
+.story-scroll__heading h2 {
+  color: var(--sc-teal);
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  line-height: 1.05;
+}
+.story-scroll__heading p {
+  color: var(--sc-teal);
+  max-width: 42ch;
+  margin-bottom: 4px;
+}
+.story-scroll__heading-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+.story-scroll__row {
+  position: relative;
+}
+.story-scroll__track {
+  padding-inline: var(--gutter);
+  align-items: flex-start;
+}
+.story-scroll__item {
+  flex: 0 0 clamp(340px, 34vw, 520px);
+}
+.story-scroll__item-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.story-scroll__item-media img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.story-scroll__item h3 {
+  color: var(--sc-teal);
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.story-scroll__item h3 a {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.story-scroll__item h3 a svg {
+  width: 16px;
+  height: 16px;
+  align-self: center;
+  transition: transform 0.2s ease;
+}
+.story-scroll__item h3 a:hover {
+  text-decoration: underline;
+}
+.story-scroll__item h3 a:hover svg {
+  transform: translate(3px, -3px);
+}
+.story-scroll__item p {
+  color: var(--sc-teal);
+  font-size: 1rem;
+  line-height: 1.55;
+  max-width: 42ch;
+}
+.story-scroll__item .btn {
+  margin-top: 16px;
+}
+/* End card — closes out the row with a CTA back to the full blog instead
+   of another article. */
+.story-scroll__item--end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  aspect-ratio: 16 / 9;
+  padding: 32px;
+  background: var(--sc-teal);
+  color: var(--sc-cream);
+}
+.story-scroll__item--end span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  max-width: 16ch;
+}
+.story-scroll__item--end svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.2s ease;
+}
+.story-scroll__item--end:hover svg {
+  transform: translate(3px, -3px);
+}
+.scroll-next {
+  position: absolute;
+  top: 35%;
+  right: var(--gutter);
+  z-index: 1;
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  background: var(--sc-white);
+  color: var(--sc-teal);
+  border: none;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.scroll-next svg {
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 700px) {
+  .story-scroll__heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+}
+.split--media-right .split__text { order: 1; }
+
+/* Centered statement variant — used for Story / Farm-Fresh / Bring-the-Coop,
+   matching the comp's centered script-line + bold-statement pattern */
+.split__text--center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.split__text--center h2 {
+  color: var(--sc-teal);
+  font-size: clamp(1.03rem, 1.6vw, 1.6rem);
+  text-transform: none;
+  font-weight: 400;
+  max-width: 30ch;
+  line-height: 1.3;
+}
+.split__text--center .btn { margin-top: 20px; }
+
+/* Full-bleed watermark band between sections — extra bottom padding plus a
+   negative margin lets the Iconic Locations section (opaque, painted after
+   it in the DOM) overlap and visually cut the watermark off, like it's
+   disappearing behind it. */
+.watermark-band {
+  position: relative;
+  z-index: 0;
+  background: var(--sc-cream);
+  overflow: hidden;
+  height: clamp(120px, 15vw, 210px);
+  margin-bottom: clamp(-55px, -4vw, -24px);
+}
+.watermark-band .watermark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.placeholder-note {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 5;
+  background: rgba(237, 34, 49, 0.92);
+  color: var(--sc-white);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+/* ---- Iconic Locations ---- */
+.locations {
+  position: relative;
+  z-index: 1;
+  background: var(--sc-white);
+  padding-block: 96px;
+  text-align: center;
+}
+.locations .container {
+  max-width: 1520px;
+}
+.locations .sticker-slot {
+  top: 24px;
+  left: calc(50% - 340px);
+  --sticker-size: 84px;
+}
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 48px;
+}
+/* Generous cream frame around the photo (the padding is what makes the
+   photo read as "smaller" within the card), label sitting below it — not
+   overlaid on the image. */
+.location-card {
+  background: var(--sc-cream);
+  border-radius: 14px;
+  padding: 44px 44px 18px;
+  text-align: left;
+}
+.location-card__frame {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+.location-card__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.location-card__label {
+  padding-top: 18px;
+}
+.location-card__label .venue {
+  display: block;
+  color: var(--sc-teal);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0;
+}
+
+/* ---- Timeline (our-story.html) — built entirely from existing pieces:
+   the card row reuses .mega-menu__cards (horizontal drag/scroll, already
+   wired up generically in js/main.js) with .location-card tiles inside it
+   instead of a .location-grid, and the tabs reuse the same bold/teal
+   .script-accent-style type, just with an active/inactive state added. ---- */
+.timeline {
+  background: var(--sc-cream);
+  padding-block: 96px;
+}
+/* Same horizontal inset on the heading/tabs and the card track below, so
+   both edges line up — a fixed, tighter value than --gutter to bring the
+   title closer to the true screen edge. */
+.timeline__head {
+  padding-inline: 24px;
+}
+.timeline__heading {
+  color: var(--sc-teal);
+  font-size: clamp(2rem, 3.6vw, 2.75rem);
+  line-height: 1.05;
+  margin-bottom: 40px;
+}
+.timeline-tabs {
+  display: flex;
+  gap: clamp(20px, 3vw, 40px);
+  overflow-x: auto;
+  padding-bottom: 20px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid rgba(34, 26, 18, 0.12);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.timeline-tabs::-webkit-scrollbar {
+  display: none;
+}
+.timeline-tabs a {
+  flex: 0 0 auto;
+  position: relative;
+  padding-bottom: 20px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  color: #a39a8e;
+  transition: color 0.2s ease;
+}
+.timeline-tabs a:hover {
+  color: var(--sc-teal);
+}
+.timeline-tabs a.is-active {
+  color: var(--sc-teal);
+}
+.timeline-tabs a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--sc-teal);
+}
+.timeline-track {
+  padding-inline: 24px;
+  padding-bottom: 8px;
+}
+
+/* Timeline cards — no card background/padding, just the image with a
+   small caption directly underneath, same borderless idea as the "Team
+   Behind It" row. */
+.timeline-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+}
+.timeline-card__media {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.timeline-card__media img {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.timeline-card__caption {
+  color: var(--sc-teal);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* ---- Stats / KPI panel (our-story.html) — teal panel inset within the
+   page, intro line + a row of big numerals. ---- */
+.stats {
+  background: var(--sc-cream);
+  padding: 48px var(--gutter) 96px;
+}
+.stats__panel {
+  background: var(--sc-teal);
+  border-radius: 16px;
+  padding: clamp(32px, 5vw, 64px);
+}
+.stats__intro {
+  max-width: 640px;
+  margin-bottom: 64px;
+  font-size: clamp(1rem, 1.5vw, 1.1875rem);
+  line-height: 1.5;
+}
+.stats__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 64px;
+}
+.stats__item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.stats__number {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  color: var(--sc-white);
+}
+.stats__label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.01em;
+  color: var(--sc-cream);
+  max-width: 18ch;
+}
+
+/* ---- Digital / ordering tiles ("Fresh Off the Farm") — same horizontally-
+   scrolling .story-scroll structure/mechanics as the About page's "Team
+   Behind It" section. ---- */
+.digital-tiles {
+  background: var(--sc-white);
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+/* ---- Blog index (blog.html) — same .story-scroll__item card (image,
+   title-with-arrow link, snippet) as the homepage's "Fresh Off the Farm"
+   row, but a static 3-column grid instead of a horizontal scroll. ---- */
+.blog-index {
+  background: var(--sc-cream);
+  padding: 96px var(--gutter);
+}
+.blog-index__grid {
+  max-width: var(--container);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 56px 40px;
+}
+.blog-index__grid .story-scroll__item {
+  flex: initial;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  background: var(--sc-cream);
+  color: var(--sc-ink);
+  padding-block: 0 28px;
+}
+.site-footer .container {
+  max-width: 1880px;
+}
+.site-footer__form {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+  max-width: 420px;
+}
+.site-footer__form input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 16px;
+  border: 1.5px solid var(--sc-cream);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--sc-cream);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+}
+.site-footer__form input::placeholder {
+  color: rgba(244, 242, 237, 0.6);
+}
+.site-footer__form .btn {
+  flex: 0 0 auto;
+}
+/* Top band is two flush color blocks — brown CTA on the left, red social
+   panel on the right — sitting above the cream bottom portion of the
+   footer (.site-footer itself stays cream; see below). */
+/* Full-bleed edge to edge — no max-width, no gutter padding, so the
+   brown/red color blocks reach the browser edge; each block carries its
+   own padding for content breathing room instead. */
+.site-footer__top .container {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  max-width: none;
+  padding-inline: 0;
+  min-height: 25vh;
+}
+.site-footer__cta {
+  background: var(--sc-brown);
+  color: var(--sc-cream);
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 88px clamp(32px, 5vw, 80px) 48px;
+}
+.site-footer__cta h2 {
+  color: var(--sc-cream);
+  text-transform: none;
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  margin-bottom: 16px;
+}
+.site-footer__cta p {
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  color: var(--sc-cream);
+  opacity: 0.8;
+  max-width: 42ch;
+}
+.site-footer__social {
+  background: var(--sc-red);
+  color: var(--sc-cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 1 1 50%;
+  padding: 88px clamp(32px, 5vw, 80px) 48px;
+}
+.site-footer__social-label {
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  line-height: 1.4;
+  text-align: right;
+  color: var(--sc-cream);
+  margin-bottom: 20px;
+}
+.site-footer__social-icons {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.site-footer__social-icons a {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--sc-cream);
+  color: var(--sc-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.site-footer__social-icons svg {
+  width: 22px;
+  height: 22px;
+}
+.site-footer__social-icons a:hover {
+  background: var(--sc-cream);
+  color: var(--sc-red);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-top: 40px;
+  margin-bottom: 40px;
+}
+.site-footer .footer-col-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: var(--sc-ink);
+  margin-bottom: 16px;
+}
+.site-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.site-footer ul a {
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--sc-teal);
+}
+.site-footer ul a:hover {
+  text-decoration: underline;
+}
+.site-footer__bottom {
+  border-top: 1px solid rgba(9, 96, 109, 0.15);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: var(--sc-teal);
+}
+
+/* ---- Territory-inquiry form (franchise.html) — structure copied from
+   the client's Canva brand book reference: eyebrow + two-tone heading
+   (script + bold), intro line, 2-col field grid. ---- */
+.apply-form {
+  background: var(--sc-cream);
+  padding: 96px var(--gutter);
+}
+.apply-form__inner {
+  max-width: 900px;
+  margin-inline: auto;
+}
+.apply-form__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: none;
+  color: var(--sc-teal);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  margin: 4px 0 24px;
+  line-height: 1.15;
+}
+.apply-form__intro {
+  color: var(--sc-teal);
+  max-width: 56ch;
+  margin-bottom: 48px;
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+}
+.apply-form__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px 48px;
+}
+.form-field--full {
+  grid-column: 1 / -1;
+}
+.form-field label {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.75rem;
+  color: var(--sc-teal);
+  margin-bottom: 10px;
+}
+.form-field__optional {
+  text-transform: none;
+  font-weight: 500;
+  color: rgba(9, 96, 109, 0.55);
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--sc-ink);
+  background: var(--sc-white);
+  border: 1px solid rgba(9, 96, 109, 0.3);
+  padding: 14px 20px;
+  transition: border-color 0.2s ease;
+}
+.form-field input,
+.form-field select {
+  border-radius: var(--radius-pill);
+}
+.form-field textarea {
+  border-radius: 24px;
+  resize: vertical;
+  min-height: 120px;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--sc-teal);
+}
+
+/* ---- Legal page (privacy.html / terms.html) — plain cream page, no
+   hero: a narrow, left-aligned reading column centered on the page. ---- */
+.legal-page {
+  background: var(--sc-cream);
+  padding: 160px var(--gutter) 120px;
+}
+.legal-page__inner {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: left;
+}
+.legal-page__inner h1 {
+  color: var(--sc-teal);
+  text-transform: none;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin-bottom: 8px;
+}
+.legal-page__updated {
+  color: rgba(9, 96, 109, 0.65);
+  font-size: 0.8125rem;
+  margin-bottom: 48px;
+}
+.legal-page__inner h2 {
+  color: var(--sc-teal);
+  text-transform: none;
+  font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+  margin: 40px 0 12px;
+}
+.legal-page__inner p {
+  color: var(--sc-ink);
+  margin-bottom: 16px;
+  max-width: 68ch;
+}
+.legal-page__inner ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+  color: var(--sc-ink);
+}
+.legal-page__inner li {
+  margin-bottom: 8px;
+  max-width: 68ch;
+}
+.legal-page__inner a {
+  color: var(--sc-teal);
+  text-decoration: underline;
+}
+
+/* ---- Location directory (locations.html) — grouped by state, structure
+   copied from the client's Canva brand book reference: state heading with
+   count + divider, then a grid of address/hours cards. ---- */
+.location-directory {
+  background: var(--sc-cream);
+  padding: 96px var(--gutter);
+}
+.location-directory__group {
+  max-width: var(--container);
+  margin-inline: auto;
+}
+.location-directory__group + .location-directory__group {
+  margin-top: 64px;
+}
+.location-directory__state {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  color: var(--sc-teal);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(9, 96, 109, 0.15);
+  margin-bottom: 32px;
+}
+.location-directory__state span {
+  font-weight: 500;
+  color: rgba(9, 96, 109, 0.6);
+}
+.location-directory__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+/* Same flat-card treatment as .menu-card (css/menu.css): white square-ish
+   panel, no border/radius/shadow, teal text, teal-fill hover that inverts
+   everything to cream. */
+.location-card2 {
+  position: relative;
+  background: var(--sc-white);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.25s ease;
+}
+.location-card2__name {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.0625rem;
+  color: var(--sc-teal);
+  margin-bottom: 6px;
+  transition: color 0.25s ease;
+}
+.location-card2__name svg {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: var(--sc-teal);
+  transition: color 0.25s ease;
+}
+.location-card2__address {
+  color: var(--sc-teal);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin: 0 0 0 26px;
+  transition: color 0.25s ease;
+}
+.location-card2__rule {
+  border: none;
+  border-top: 1px solid rgba(9, 96, 109, 0.25);
+  margin: 14px 0 10px;
+  transition: border-color 0.25s ease;
+}
+.location-card2__hours {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--sc-teal);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  transition: color 0.25s ease;
+}
+.location-card2__hours svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 1px;
+  color: var(--sc-teal);
+  transition: color 0.25s ease;
+}
+.location-card2__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+.location-card2:hover {
+  background: var(--sc-teal);
+}
+.location-card2:hover .location-card2__name,
+.location-card2:hover .location-card2__name svg,
+.location-card2:hover .location-card2__address,
+.location-card2:hover .location-card2__hours,
+.location-card2:hover .location-card2__hours svg {
+  color: var(--sc-cream);
+}
+.location-card2:hover .location-card2__rule {
+  border-top-color: rgba(244, 242, 237, 0.35);
+}
+.location-card2:hover .btn--outline-teal {
+  border-color: var(--sc-cream);
+  color: var(--sc-cream);
+}
+.location-card2:hover .btn--teal {
+  background: var(--sc-cream);
+  color: var(--sc-teal);
+  border-color: var(--sc-cream);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--sc-white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    border-bottom: 1px solid rgba(34, 26, 18, 0.08);
+  }
+  .main-nav--open { display: flex; }
+  .main-nav > a,
+  .main-nav > .nav-item--mega > a {
+    width: 100%;
+    padding: 16px var(--gutter);
+    border-top: 1px solid rgba(34, 26, 18, 0.06);
+  }
+  .site-header__inner { position: relative; flex-wrap: wrap; }
+  .nav-toggle { display: block; }
+
+  .signature-tiles { grid-template-columns: 1fr; }
+  .location-grid { grid-template-columns: 1fr; max-width: 360px; margin-inline: auto; }
+  .blog-index__grid { grid-template-columns: 1fr; }
+
+  .split,
+  .split--media-right,
+  .split--portrait { grid-template-columns: 1fr; }
+  .split--media-right .split__media,
+  .split--media-right .split__text { order: initial; }
+  .split__media__frame--portrait { max-width: 320px; margin-inline: auto; }
+
+  .site-footer__grid { grid-template-columns: 1fr 1fr; }
+  .apply-form__grid { grid-template-columns: 1fr; }
+  .location-directory__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .site-footer__grid { grid-template-columns: 1fr; }
+  .hero { min-height: 100vh; }
+}

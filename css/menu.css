@@ -1,0 +1,259 @@
+/* ==========================================================================
+   Spring Chicken — Menu page
+   ========================================================================== */
+
+
+/* ---- Secondary nav: centered category jump-list, pinned under the header
+   once scrolled to (see initMenuSubnavPin in js/main.js — plain CSS
+   position:sticky breaks under ScrollSmoother's transformed content, same
+   reason the header itself is position:fixed, so this uses a
+   ScrollTrigger pin instead). Drives which single .menu-category panel is
+   visible below it. ---- */
+.menu-subnav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px var(--gutter);
+  background: var(--sc-white);
+  z-index: 30;
+}
+/* Fixed twin appended to <body> by initMenuSubnavPin in js/main.js — fades
+   in once the real (in-flow) subnav scrolls up under the header, giving
+   the illusion of a sticky nav with zero reserved layout space. */
+.menu-subnav--sticky-clone {
+  position: fixed;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 8px 20px rgba(34, 26, 18, 0.08);
+  z-index: 60;
+}
+.menu-subnav--sticky-clone.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.menu-subnav__eyebrow {
+  flex: 0 0 auto;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sc-teal);
+  white-space: nowrap;
+}
+.menu-subnav__track {
+  display: flex;
+  flex-wrap: nowrap;
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: space-between;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+.menu-subnav__track.is-dragging {
+  cursor: grabbing;
+}
+.menu-subnav__track::-webkit-scrollbar {
+  display: none;
+}
+.menu-subnav a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.9375rem;
+  letter-spacing: normal;
+  text-transform: none;
+  color: #4a4038;
+  white-space: nowrap;
+  padding: 12px 24px;
+  border: 1.5px solid var(--sc-teal);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.menu-subnav a:hover,
+.menu-subnav a.is-active {
+  background: var(--sc-teal);
+  border-color: var(--sc-teal);
+  color: var(--sc-white);
+}
+
+/* ---- Category panels: only one .menu-category is visible at a time — see
+   initMenuPanels in js/main.js, which toggles [hidden] as subnav/explore
+   links are clicked. Each panel is a 3-up grid of square item cards, with
+   a decorative (non-clickable) category photo dropped in as the 4th grid
+   tile — the .menu-category--media-right modifier from the old two-column
+   layout no longer applies here. ---- */
+.menu-category[hidden] {
+  display: none;
+}
+.menu-category {
+  padding-block: 64px 120px;
+  padding-inline: max(var(--gutter), calc((100% - 1240px) / 2));
+  background: var(--sc-cream);
+}
+.menu-category__title {
+  color: var(--sc-teal);
+  font-size: clamp(1.75rem, 2.4vw, 2.375rem);
+  margin-bottom: 36px;
+}
+
+/* ---- Item grid ---- */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.menu-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--sc-white);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.25s ease;
+}
+.menu-card__title {
+  color: var(--sc-teal);
+  font-size: 1.125rem;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0;
+  transition: color 0.25s ease;
+}
+.menu-card__body {
+  margin-top: auto;
+}
+.menu-card__desc {
+  color: var(--sc-teal);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.25s ease;
+}
+.menu-card__rule {
+  border: none;
+  border-top: 1px solid rgba(9, 96, 109, 0.25);
+  margin: 14px 0 10px;
+  transition: border-color 0.25s ease;
+}
+.menu-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.menu-card__allergens {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--sc-teal);
+  transition: color 0.25s ease;
+}
+.menu-card__allergens--tbd {
+  color: #a39a8e;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  font-style: italic;
+}
+.menu-card__diet {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+.menu-card__diet-icon {
+  display: inline-flex;
+  color: var(--sc-teal);
+  transition: color 0.25s ease;
+}
+
+.menu-card:hover {
+  background: var(--sc-teal);
+}
+.menu-card:hover .menu-card__title,
+.menu-card:hover .menu-card__desc,
+.menu-card:hover .menu-card__allergens,
+.menu-card:hover .menu-card__diet-icon {
+  color: var(--sc-cream);
+}
+.menu-card:hover .menu-card__allergens--tbd {
+  color: rgba(244, 242, 237, 0.75);
+}
+.menu-card:hover .menu-card__rule {
+  border-top-color: rgba(244, 242, 237, 0.35);
+}
+.diet-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ---- Feature tile: decorative category photo, not a link, occupies the
+   4th grid position among the item cards. ---- */
+.menu-grid__feature {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--sc-brown);
+}
+.menu-grid__feature--placeholder {
+  background: linear-gradient(135deg, var(--sc-brown), #2c1a08);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px;
+}
+.menu-category__placeholder-note {
+  display: inline-block;
+  color: var(--sc-white);
+  background: var(--sc-red);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 900px) {
+  .menu-category {
+    padding-block: 48px 80px;
+  }
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .menu-subnav {
+    flex-wrap: wrap;
+    row-gap: 10px;
+  }
+  .menu-subnav__track {
+    justify-content: flex-start;
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 560px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
