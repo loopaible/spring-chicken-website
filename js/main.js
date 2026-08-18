@@ -132,7 +132,19 @@ function initTimelineTabs() {
       if (!target) return;
       e.preventDefault();
       tabs.querySelectorAll("a").forEach((t) => t.classList.toggle("is-active", t === tab));
-      target.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+      // Not target.scrollIntoView({behavior:"smooth"}) — that silently
+      // no-ops here because .timeline-track sits inside ScrollSmoother's
+      // transformed #smooth-content, which breaks native smooth-scroll
+      // targeting in some browsers. Animating scrollLeft directly with
+      // GSAP sidesteps that entirely.
+      const inset = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+      const delta = target.getBoundingClientRect().left - track.getBoundingClientRect().left;
+      const targetScrollLeft = track.scrollLeft + delta - inset;
+      if (window.gsap) {
+        gsap.to(track, { scrollLeft: targetScrollLeft, duration: 0.6, ease: "power2.out" });
+      } else {
+        track.scrollLeft = targetScrollLeft;
+      }
     });
   });
 }
