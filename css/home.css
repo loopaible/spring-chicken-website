@@ -878,6 +878,9 @@
   font-size: 0.75rem;
   line-height: 1.5;
 }
+.timeline-card__caption + .timeline-card__caption {
+  margin-top: 6px;
+}
 
 /* ---- Stats / KPI panel (our-story.html) — teal panel inset within the
    page, intro line + a row of big numerals. ---- */
