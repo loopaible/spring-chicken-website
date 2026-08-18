@@ -7,17 +7,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spring Chicken — Media Kit</title>
 <meta name="description" content="Media kit and press resources for Spring Chicken, a 50 Eggs Hospitality Group concept.">
-<link rel="stylesheet" href="css/base.css?v=90">
-<link rel="stylesheet" href="css/home.css?v=90">
+<link rel="stylesheet" href="css/base.css?v=91">
+<link rel="stylesheet" href="css/home.css?v=91">
 </head>
 <body>
 
 <!-- ==========================================================================
      PROTOTYPE NOTES (remove before final handoff)
-     - This is a placeholder. This page is meant to hold press assets
-       (logo pack, brand photography, fact sheet) once the client
-       provides content. Linked from the Investors mega-menu and the
-       footer's Support column.
+     - Layout is built (logo/color/type/photo/fact-sheet/contact cards),
+       but every download button below points to "#" — there's no real
+       file to link to yet. Two ways to make these live once assets
+       exist:
+       1) Small, static files (logo pack zip, fact-sheet PDF, font zip):
+          drop them straight in this repo (e.g. assets/media-kit/) and
+          point each <a href="#"> at that path — GitHub Pages serves any
+          static file for free, no separate host needed.
+       2) A larger/growing photo library: put it in a shared Google
+          Drive or Dropbox folder instead (set to "anyone with the link
+          can view") and link the "Request Photos" button straight to
+          that folder URL — easier for press to browse, and you can add
+          photos later without redeploying the site.
      ========================================================================== -->
 
 <header class="site-header">
@@ -72,27 +81,27 @@
                 <span class="mega-card__label headline-outline">Breakfast</span>
               </a>
               <a href="menus.html#cat-toasts" class="mega-card">
-                <span class="mega-card__placeholder-note">Needs photo</span>
+                <img src="assets/images/menu-toasts.jpg" alt="Toasts" loading="lazy" decoding="async">
                 <span class="mega-card__label headline-outline">Toasts</span>
               </a>
               <a href="menus.html#cat-coffee" class="mega-card">
-                <span class="mega-card__placeholder-note">Needs photo</span>
+                <img src="assets/images/menu-coffee.jpg" alt="Coffee &amp; Drinks" loading="lazy" decoding="async">
                 <span class="mega-card__label headline-outline">Coffee &amp; Drinks</span>
               </a>
               <a href="menus.html#cat-juices" class="mega-card">
-                <span class="mega-card__placeholder-note">Needs photo</span>
+                <img src="assets/images/menu-juices.jpg" alt="Juices &amp; Smoothies" loading="lazy" decoding="async">
                 <span class="mega-card__label headline-outline">Juices &amp; Smoothies</span>
               </a>
               <a href="menus.html#cat-grabgo" class="mega-card">
-                <span class="mega-card__placeholder-note">Needs photo</span>
+                <img src="assets/images/menu-grabgo.jpg" alt="Grab &amp; Go" loading="lazy" decoding="async">
                 <span class="mega-card__label headline-outline">Grab &amp; Go</span>
               </a>
               <a href="menus.html#cat-sweets" class="mega-card">
-                <span class="mega-card__placeholder-note">Needs photo</span>
+                <img src="assets/images/menu-sweets.jpg" alt="Sweets" loading="lazy" decoding="async">
                 <span class="mega-card__label headline-outline">Sweets</span>
               </a>
               <a href="menus.html#cat-sauces" class="mega-card">
-                <span class="mega-card__placeholder-note">Needs photo</span>
+                <img src="assets/images/menu-sauces.jpg" alt="House Sauces" loading="lazy" decoding="async">
                 <span class="mega-card__label headline-outline">House Sauces</span>
               </a>
             </div>
@@ -141,18 +150,109 @@
     </div>
   </section>
 
-  <!-- PLACEHOLDER — logo pack, brand photography, and fact sheet not
-       provided by the client yet; holding here until that's built out. -->
-  <div class="story-rows">
-    <section class="split split--portrait" style="grid-template-columns:1fr;">
-      <div class="split__text split__text--center" style="padding-block:0;">
-        <span class="script-accent">Coming Soon</span>
-        <h2>Press Resources</h2>
-        <p>Logo files, brand photography, and a fact sheet will be available here. For press inquiries in the meantime, reach out directly.</p>
-        <a href="contact.html" class="btn btn--teal btn--sm">Press Inquiries</a>
+  <!-- MEDIA KIT — same card component (.location-card2) as locations.html,
+       reused for asset categories instead of physical locations. Download
+       buttons are placeholders ("#") until real files/links exist — see
+       the PROTOTYPE NOTE at the top of this file for what to do about
+       hosting them. -->
+  <section class="media-kit">
+    <div class="media-kit__intro">
+      <span class="script-accent">Press &amp; Partners</span>
+      <h2>Everything You Need To Cover Spring Chicken</h2>
+      <p>Logos, brand colors, photography, and company facts — all in one place. For anything not listed here, reach out directly.</p>
+    </div>
+
+    <div class="media-kit__grid">
+      <div class="location-card2">
+        <div class="location-card2__name">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 14V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 12.5 7.5 9l3 3L15 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Logo Files</span>
+        </div>
+        <p class="location-card2__address">Primary logo, icon mark, and reversed/white versions — PNG and SVG.</p>
+        <hr class="location-card2__rule">
+        <div class="location-card2__actions">
+          <!-- TODO: point to a real logo-pack.zip once one exists (see PROTOTYPE NOTE above) -->
+          <a href="#" class="btn btn--outline-teal btn--sm">Download Logos</a>
+        </div>
       </div>
-    </section>
-  </div>
+
+      <div class="location-card2">
+        <div class="location-card2__name">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75c-2 2-2 12.5 0 14.5M10 2.75c2 2 2 12.5 0 14.5M3 10h14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Brand Colors</span>
+        </div>
+        <p class="location-card2__address">Our core palette — use these exact values across any Spring Chicken materials.</p>
+        <div class="media-kit__swatches">
+          <div class="media-kit__swatch" style="background:var(--sc-teal);">
+            <span>Teal</span>
+            <span>#09606D</span>
+          </div>
+          <div class="media-kit__swatch" style="background:var(--sc-red);">
+            <span>Red</span>
+            <span>#ED2231</span>
+          </div>
+          <div class="media-kit__swatch" style="background:var(--sc-brown);">
+            <span>Brown</span>
+            <span>#4F2D08</span>
+          </div>
+          <div class="media-kit__swatch media-kit__swatch--light" style="background:var(--sc-cream);">
+            <span>Cream</span>
+            <span>#F4F2ED</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="location-card2">
+        <div class="location-card2__name">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 15h12M6 15V6l4-2 4 2v9M9 15v-4h2v4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span>Typography</span>
+        </div>
+        <p class="location-card2__address">Avenir for everything functional (body copy, buttons, navigation). Lobster for accent moments only — never body text.</p>
+        <hr class="location-card2__rule">
+        <div class="location-card2__actions">
+          <!-- TODO: point to the actual .woff2 files or a type-specimen PDF once one exists -->
+          <a href="#" class="btn btn--outline-teal btn--sm">Download Fonts</a>
+        </div>
+      </div>
+
+      <div class="location-card2">
+        <div class="location-card2__name">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3.5" y="4.5" width="13" height="11" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="7.5" cy="8.5" r="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 13.5 8 10l2.5 2.5L14 9l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span>Photography</span>
+        </div>
+        <p class="location-card2__address">Food, restaurant, and lifestyle photography available on request for press and partners.</p>
+        <hr class="location-card2__rule">
+        <div class="location-card2__actions">
+          <a href="contact.html" class="btn btn--outline-teal btn--sm">Request Photos</a>
+        </div>
+      </div>
+
+      <div class="location-card2">
+        <div class="location-card2__name">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 3.5h6l3 3v10a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1v-12a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M7 9h6M7 12h6M7 15h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <span>Company Fact Sheet</span>
+        </div>
+        <p class="location-card2__address">Founding story, current locations, and key stats — one page, always current.</p>
+        <hr class="location-card2__rule">
+        <div class="location-card2__actions">
+          <!-- TODO: point to a real fact-sheet.pdf once one exists -->
+          <a href="#" class="btn btn--outline-teal btn--sm">Download Fact Sheet</a>
+        </div>
+      </div>
+
+      <div class="location-card2">
+        <div class="location-card2__name">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="5" width="14" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M3.5 5.5 10 11l6.5-5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          <span>Press Contact</span>
+        </div>
+        <p class="location-card2__address">For interviews, quotes, or anything not listed here, reach out directly.</p>
+        <hr class="location-card2__rule">
+        <div class="location-card2__actions">
+          <a href="contact.html" class="btn btn--teal btn--sm">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
 </main>
 
@@ -233,6 +333,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-<script src="js/main.js?v=90"></script>
+<script src="js/main.js?v=91"></script>
 </body>
 </html>

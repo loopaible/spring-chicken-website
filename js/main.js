@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollNextButtons();
   initPageHero();
   initNavHoverGuard();
-  initFounderVoicePlayer();
 });
 
 // Mega-menu dropdowns used to open via pure CSS :hover, which the browser
@@ -565,57 +564,4 @@ function initStickerTravel() {
   } else {
     window.addEventListener("load", run);
   }
-}
-
-// Founder "voice note" demo (our-story.html) — plays the quote/note copy
-// through the browser's built-in text-to-speech (window.speechSynthesis, a
-// generic system voice) and pulses an animated waveform while it talks.
-// This is a placeholder to preview the interaction only: it is NOT John
-// Kunkel's real voice, and speechSynthesis doesn't expose real audio
-// samples to analyze, so the bars pulse on randomized CSS timing rather
-// than an actual waveform. Swap in a real recorded voiceover file (e.g. an
-// <audio> element wired to Web Audio's AnalyserNode for genuine bars)
-// before launch.
-function initFounderVoicePlayer() {
-  const button = document.querySelector(".media-play");
-  const waveform = document.querySelector(".voice-waveform");
-  const noteEl = document.querySelector("[data-voice-note]");
-  if (!button || !waveform || !noteEl || !("speechSynthesis" in window)) return;
-
-  const barCount = 20;
-  for (let i = 0; i < barCount; i++) {
-    const bar = document.createElement("span");
-    bar.className = "voice-waveform__bar";
-    bar.style.animationDuration = `${0.6 + Math.random() * 0.6}s`;
-    bar.style.animationDelay = `-${Math.random() * 0.6}s`;
-    waveform.appendChild(bar);
-  }
-
-  const playIcon = button.querySelector(".media-play__icon--play");
-  const pauseIcon = button.querySelector(".media-play__icon--pause");
-  const quoteEl = noteEl.closest(".split__text").querySelector("h2");
-  const text = [quoteEl && quoteEl.textContent, noteEl.querySelector("p") && noteEl.querySelector("p").textContent]
-    .filter(Boolean)
-    .join(". ");
-
-  const setPlaying = (playing) => {
-    button.setAttribute("aria-pressed", String(playing));
-    waveform.classList.toggle("is-playing", playing);
-    if (playIcon) playIcon.hidden = playing;
-    if (pauseIcon) pauseIcon.hidden = !playing;
-  };
-
-  button.addEventListener("click", () => {
-    if (window.speechSynthesis.speaking) {
-      window.speechSynthesis.cancel();
-      setPlaying(false);
-      return;
-    }
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.95;
-    utterance.onend = () => setPlaying(false);
-    utterance.onerror = () => setPlaying(false);
-    window.speechSynthesis.speak(utterance);
-    setPlaying(true);
-  });
 }
