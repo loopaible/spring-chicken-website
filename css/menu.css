@@ -74,7 +74,7 @@
   font-size: 0.9375rem;
   letter-spacing: normal;
   text-transform: none;
-  color: #4a4038;
+  color: var(--sc-teal);
   white-space: nowrap;
   padding: 12px 24px;
   border: 1.5px solid var(--sc-teal);

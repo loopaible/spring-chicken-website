@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spring Chicken — Our Story</title>
 <meta name="description" content="Born from the kitchen culture of Yardbird, Spring Chicken brings chef-driven, never-frozen chicken to the places people move through every day.">
-<link rel="stylesheet" href="css/base.css?v=92">
-<link rel="stylesheet" href="css/home.css?v=92">
+<link rel="stylesheet" href="css/base.css?v=94">
+<link rel="stylesheet" href="css/home.css?v=94">
 </head>
 <body>
 
@@ -19,9 +19,9 @@
      - No dedicated photography exists yet for the story/50 Eggs rows —
        reused hero-spread.jpg and farm-banner.jpg as placeholders; only
        John Kunkel's row uses a confirmed final image.
-     - Timeline section (below the three story rows) has no client content
-       or imagery yet — every entry is lorem ipsum with the same photo
-       repeated, purely to block out the layout per client request.
+     - Timeline milestones/dates are sourced from the 50 Eggs Hospitality
+       Group brand book (2023) — confirm with the client before launch,
+       especially the "Today" entry, which will need updating over time.
      ========================================================================== -->
 
 <header class="site-header">
@@ -174,98 +174,52 @@
        the menu subnav, the card row reuses .mega-menu__cards (horizontal
        drag/scroll, already wired up generically in js/main.js), and each
        card reuses .location-card (image on top, caption below). -->
+  <!-- Real milestones sourced from the 50 Eggs Hospitality Group brand
+       book (2023). The 2020 Las Vegas/Allegiant Stadium location from
+       that deck is intentionally omitted — confirmed closed since. -->
   <section class="timeline">
     <div class="timeline__head">
-      <h2 class="timeline__heading">Our journey<br>since 0000</h2>
+      <h2 class="timeline__heading">Our journey<br>since 2001</h2>
 
       <nav class="timeline-tabs" aria-label="Timeline year">
-        <a href="#year-2012" class="is-active">2012</a>
-        <a href="#year-2013">2013</a>
-        <a href="#year-2015">2015</a>
-        <a href="#year-2016">2016</a>
-        <a href="#year-2017">2017</a>
-        <a href="#year-2019">2019</a>
-        <a href="#year-2020">2020</a>
-        <a href="#year-2021">2021</a>
-        <a href="#year-2022">2022</a>
-        <a href="#year-2024">2024</a>
-        <a href="#year-2025">2025</a>
-        <a href="#year-2026">2026</a>
+        <a href="#year-2001" class="is-active">2001</a>
+        <a href="#year-2011">2011</a>
+        <a href="#year-2018">2018</a>
+        <a href="#year-2023">2023</a>
+        <a href="#year-today">Today</a>
       </nav>
     </div>
 
       <div class="mega-menu__cards timeline-track">
-        <div class="timeline-card" id="year-2012">
+        <div class="timeline-card" id="year-2001">
           <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+            <img src="assets/images/founder-john-kunkel.jpg" alt="John Kunkel, founder of 50 Eggs Hospitality Group" loading="lazy" decoding="async">
           </div>
-          <p class="timeline-card__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p class="timeline-card__caption">50 Eggs Hospitality Group is founded by John Kunkel.</p>
         </div>
-        <div class="timeline-card" id="year-2013">
+        <div class="timeline-card" id="year-2011">
           <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+            <img src="assets/images/concept-yardbird.jpg" alt="Yardbird" loading="lazy" decoding="async">
           </div>
-          <p class="timeline-card__caption">Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+          <p class="timeline-card__caption">Yardbird opens in Miami — the roots Spring Chicken was built from.</p>
         </div>
-        <div class="timeline-card" id="year-2015">
+        <div class="timeline-card" id="year-2018">
           <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+            <img src="assets/images/location-miami.jpg" alt="Miami" loading="lazy" decoding="async">
           </div>
-          <p class="timeline-card__caption">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+          <p class="timeline-card__caption">Spring Chicken launches its first location at Miami International Airport.</p>
         </div>
-        <div class="timeline-card" id="year-2016">
+        <div class="timeline-card" id="year-2023">
           <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+            <img src="assets/images/concept-wakuda.jpg" alt="Wakuda" loading="lazy" decoding="async">
           </div>
-          <p class="timeline-card__caption">Duis aute irure dolor in reprehenderit in voluptate velit.</p>
+          <p class="timeline-card__caption">50 Eggs Hospitality Group expands globally, with restaurants from Miami to Singapore.</p>
         </div>
-        <div class="timeline-card" id="year-2017">
+        <div class="timeline-card" id="year-today">
           <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
+            <img src="assets/images/hero-home.jpg" alt="Spring Chicken bowls" loading="lazy" decoding="async">
           </div>
-          <p class="timeline-card__caption">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
-        </div>
-        <div class="timeline-card" id="year-2019">
-          <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="timeline-card__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="timeline-card" id="year-2020">
-          <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="timeline-card__caption">Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
-        </div>
-        <div class="timeline-card" id="year-2021">
-          <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="timeline-card__caption">Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-        </div>
-        <div class="timeline-card" id="year-2022">
-          <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="timeline-card__caption">Duis aute irure dolor in reprehenderit in voluptate velit.</p>
-        </div>
-        <div class="timeline-card" id="year-2024">
-          <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="timeline-card__caption">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</p>
-        </div>
-        <div class="timeline-card" id="year-2025">
-          <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="timeline-card__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
-        <div class="timeline-card" id="year-2026">
-          <div class="timeline-card__media">
-            <img src="assets/images/hero-spread.jpg" alt="" loading="lazy" decoding="async">
-          </div>
-          <p class="timeline-card__caption">Sed do eiusmod tempor incididunt ut labore et dolore magna.</p>
+          <p class="timeline-card__caption">Spring Chicken keeps growing, bringing hand-breaded, never-frozen chicken to new high-traffic venues.</p>
         </div>
       </div>
   </section>
@@ -453,6 +407,6 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-<script src="js/main.js?v=92"></script>
+<script src="js/main.js?v=94"></script>
 </body>
 </html>

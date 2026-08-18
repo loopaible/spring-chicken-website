@@ -17,6 +17,7 @@
      raising the ancestor's own z-index escapes that. */
   z-index: 90;
   background: var(--sc-white);
+  border-bottom: 0.5pt solid #d8d8d8;
 }
 .site-header__inner {
   position: relative;
