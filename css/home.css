@@ -856,12 +856,12 @@
 /* Timeline cards — no card background/padding, just the image with a
    small caption directly underneath, same borderless idea as the "Team
    Behind It" row. */
-/* Exactly 4 cards fill the track width on desktop, regardless of viewport
+/* Exactly 3 cards fill the track width on desktop, regardless of viewport
    — flex-basis percentages resolve against the flex container's own
    (visible/clipped) width, not the intrinsic scrolling content width, so
    this stays accurate at any desktop size without JS. */
 .timeline-card {
-  flex: 0 0 calc((100% - 3 * 20px) / 4);
+  flex: 0 0 calc((100% - 2 * 20px) / 3);
   scroll-snap-align: start;
 }
 .timeline-card__media {
