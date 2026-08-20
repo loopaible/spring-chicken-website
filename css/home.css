@@ -866,7 +866,7 @@
 }
 .timeline-card__media {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   margin-bottom: 16px;
 }
