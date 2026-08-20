@@ -154,24 +154,34 @@ function initTimelineTabs() {
     });
   });
 
-  // Keep the active tab in sync with whichever card is actually in frame
-  // as the track is scrolled directly (drag-to-scroll or trackpad swipe),
-  // not just on tab click.
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        let best = null;
-        entries.forEach((entry) => {
-          if (entry.intersectionRatio > 0 && (!best || entry.intersectionRatio > best.intersectionRatio)) {
-            best = entry;
-          }
-        });
-        if (best) setActiveById(best.target.id);
-      },
-      { root: track, threshold: [0.5, 0.75, 1] }
-    );
-    cards.forEach((card) => observer.observe(card));
-  }
+  // Keep the active tab in sync with whichever card is leading the
+  // carousel — i.e. sitting at (or just past) the track's own left inset
+  // — as it's scrolled directly (drag-to-scroll or trackpad swipe), not
+  // just on tab click. This one rule always has a single, stable winner;
+  // comparing IntersectionObserver ratios across several cards that are
+  // all ~equally visible at once (4 fit on screen) made the active tab
+  // flicker between neighbors as the user scrolled.
+  let ticking = false;
+  const syncActiveToFront = () => {
+    ticking = false;
+    const inset = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    const frontX = track.getBoundingClientRect().left + inset;
+    let front = cards[0];
+    let bestDelta = Infinity;
+    cards.forEach((card) => {
+      const delta = frontX - card.getBoundingClientRect().left;
+      if (delta >= -1 && delta < bestDelta) {
+        bestDelta = delta;
+        front = card;
+      }
+    });
+    setActiveById(front.id);
+  };
+  track.addEventListener("scroll", () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(syncActiveToFront);
+  });
 }
 
 // The header's "View Menu" mega menu links to menus.html#cat-x from other
