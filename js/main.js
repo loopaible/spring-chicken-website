@@ -258,7 +258,12 @@ function initHeaderOffset() {
   if (!header || !content) return;
 
   const sync = () => {
-    const headerH = header.offsetHeight;
+    // getBoundingClientRect() (sub-pixel float) instead of offsetHeight
+    // (rounded to the nearest integer) — with the header's 0.5px border,
+    // offsetHeight's rounding could land a fraction of a pixel short,
+    // leaving a hairline gap between the header and the mega-menu
+    // dropdowns that sit flush against --header-h.
+    const headerH = header.getBoundingClientRect().height;
     document.documentElement.style.setProperty("--header-h", headerH + "px");
     content.style.paddingTop = headerH + "px";
   };
