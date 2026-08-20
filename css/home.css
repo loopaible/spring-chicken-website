@@ -850,20 +850,25 @@
 .timeline-track {
   padding-inline: 24px;
   padding-bottom: 8px;
+  gap: 20px;
 }
 
 /* Timeline cards — no card background/padding, just the image with a
    small caption directly underneath, same borderless idea as the "Team
    Behind It" row. */
+/* Exactly 4 cards fill the track width on desktop, regardless of viewport
+   — flex-basis percentages resolve against the flex container's own
+   (visible/clipped) width, not the intrinsic scrolling content width, so
+   this stays accurate at any desktop size without JS. */
 .timeline-card {
-  flex: 0 0 300px;
+  flex: 0 0 calc((100% - 3 * 20px) / 4);
   scroll-snap-align: start;
 }
 .timeline-card__media {
   position: relative;
   aspect-ratio: 3 / 4;
   overflow: hidden;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 .timeline-card__media img {
   display: block;
@@ -875,7 +880,7 @@
 }
 .timeline-card__caption {
   color: var(--sc-teal);
-  font-size: 0.75rem;
+  font-size: 0.9375rem;
   line-height: 1.5;
 }
 .timeline-card__caption + .timeline-card__caption {
@@ -1425,6 +1430,7 @@
 
   .signature-tiles { grid-template-columns: 1fr; }
   .blog-index__grid { grid-template-columns: 1fr; }
+  .timeline-card { flex-basis: 78vw; }
   .media-kit__grid { grid-template-columns: 1fr; }
 
   .split,

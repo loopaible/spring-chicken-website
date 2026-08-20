@@ -125,13 +125,19 @@ function initTimelineTabs() {
   const track = document.querySelector(".timeline-track");
   if (!tabs || !track) return;
 
-  tabs.querySelectorAll("a").forEach((tab) => {
+  const tabLinks = Array.from(tabs.querySelectorAll("a"));
+  const cards = Array.from(track.querySelectorAll(".timeline-card"));
+  const setActiveById = (id) => {
+    tabLinks.forEach((t) => t.classList.toggle("is-active", t.getAttribute("href") === `#${id}`));
+  };
+
+  tabLinks.forEach((tab) => {
     tab.addEventListener("click", (e) => {
       const id = tab.getAttribute("href");
       const target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      tabs.querySelectorAll("a").forEach((t) => t.classList.toggle("is-active", t === tab));
+      setActiveById(target.id);
       // Not target.scrollIntoView({behavior:"smooth"}) — that silently
       // no-ops here because .timeline-track sits inside ScrollSmoother's
       // transformed #smooth-content, which breaks native smooth-scroll
@@ -147,6 +153,25 @@ function initTimelineTabs() {
       }
     });
   });
+
+  // Keep the active tab in sync with whichever card is actually in frame
+  // as the track is scrolled directly (drag-to-scroll or trackpad swipe),
+  // not just on tab click.
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let best = null;
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio > 0 && (!best || entry.intersectionRatio > best.intersectionRatio)) {
+            best = entry;
+          }
+        });
+        if (best) setActiveById(best.target.id);
+      },
+      { root: track, threshold: [0.5, 0.75, 1] }
+    );
+    cards.forEach((card) => observer.observe(card));
+  }
 }
 
 // The header's "View Menu" mega menu links to menus.html#cat-x from other
